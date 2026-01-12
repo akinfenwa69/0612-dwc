@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Afegir Contacte</title>
+</head>
+
+<body class="dark bg-[var(--background)] text-[var(--foreground)] flex">
+    <nav class="h-screen w-80 bg-[var(--sidebar)] text-[var(--sidebar-foreground)] flex flex-col justify-between p-2">
+        <div class="grid gap-3">
+            <div class="relative bg-[var(--sidebar-accent)] p-4 rounded-lg flex gap-2 items-center">
+                <div class="flex items-center justify-center rounded-lg h-full aspect-square bg-blue-500">
+                    <span class="material-symbols-outlined">folder</span>
+                </div>
+                <div>
+                    <p>Projecte Contactes</p>
+                    <p class="text-xs">DAW2A 0612</p>
+                </div>
+                <span class="material-symbols-outlined absolute right-4">unfold_more</span>
+            </div>
+            <div class="p-2 grid gap-2">
+                <p class="text-sm text-[var(--sidebar-foreground)]/50">General</p>
+                <ul>
+                    <li>
+                        <a href="/"
+                            class="relative flex gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded">
+                            <span class="material-symbols-outlined">account_box</span>
+                            <p>Contactes</p>
+                            <span onclick="window.location.href='/new'"
+                                class="material-symbols-outlined absolute right-2 hover:bg-[var(--sidebar-foreground)]/20 rounded-full p-0.5">
+                                add
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid gap-3">
+            <div class="p-2 grid gap-2">
+                <p class="text-sm text-[var(--sidebar-foreground)]/50">Configuració</p>
+                <ul>
+                    <li onclick="function toggleTheme() {
+                        document.getElementsByTagName('body').classList.contains('dark') ? document.getElementsByTagName('body').classList.remove('dark') : document.getElementsByTagName('body').classList.add('dark')
+                    }"
+                        class="flex gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded select-none">
+                        <span class="material-symbols-outlined">bedtime</span>
+                        <p>Dark Mode</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative bg-[var(--sidebar-accent)] p-4 rounded-lg flex gap-2 items-center">
+                <div class="h-8 w-8 flex items-center justify-center">
+                    <img src="../images/ESCUT.png" alt="logo">
+                </div>
+                <p>Pol Poblet Pallisé</p>
+                <span class="material-symbols-outlined absolute right-4">unfold_more</span>
+            </div>
+        </div>
+    </nav>
+    <main class="flex flex-1 flex-col gap-4 p-4">
+        <div class="flex gap-3 items-center h-8">
+            <span
+                class="material-symbols-outlined cursor-pointer transition hover:bg-[var(--accent)]/70 rounded-full p-2">space_dashboard</span>
+            <hr class="border h-full text-[var(--muted-foreground)]">
+            <div class="flex items-center">
+                <a href="/" class="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]">Home</a>
+                <span class="material-symbols-outlined text-[var(--muted-foreground)]">chevron_right</span>
+                <a href="/new"
+                    class="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]">Afegir</a>
+            </div>
+        </div>
+        <div class="p-10 grid gap-3 bg-[var(--card)] rounded-xl border border-[var(--primary)]/20">
+            <div class="text-center">
+                <h1 class="text-2xl">Afegir Contacte</h1>
+                <p class="text-[var(--muted-foreground)]">sadsandf</p>
+            </div>
+            <div>
+                <form action="" method="post">
+                    <label for="nom">Nom</label>
+                    <input type="text" name="nom" id="nom"
+                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email"
+                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+
+                    <label for="tel">Telèfon</label>
+                    <input type="tel" name="tel" id="tel"
+                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+
+                    <button type="submit"
+                        class="rounded p-2 cursor-pointer bg-[var(--secondary)] transition border border-[var(--input)] hover:bg-[var(--input)]">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
