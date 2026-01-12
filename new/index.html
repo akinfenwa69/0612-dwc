@@ -45,12 +45,10 @@
             <div class="p-2 grid gap-2">
                 <p class="text-sm text-[var(--sidebar-foreground)]/50">Configuració</p>
                 <ul>
-                    <li onclick="function toggleTheme() {
-                        document.getElementsByTagName('body').classList.contains('dark') ? document.getElementsByTagName('body').classList.remove('dark') : document.getElementsByTagName('body').classList.add('dark')
-                    }"
+                    <li onclick="toggleTheme()"
                         class="flex gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded select-none">
-                        <span class="material-symbols-outlined">bedtime</span>
-                        <p>Dark Mode</p>
+                        <span id="theme-icon" class="material-symbols-outlined">bedtime</span>
+                        <p id="theme-text">Dark Mode</p>
                     </li>
                 </ul>
             </div>

@@ -5,11 +5,30 @@
 const url = window.location.href;
 
 //
+// THEME TOGGLE
+//
+
+function toggleTheme() {
+    const isDark = document.body.classList.contains('dark');
+    const icon = document.querySelector('#theme-icon');
+    const text = document.querySelector('#theme-text');
+
+    document.body.classList.toggle('dark');
+
+    if (icon) {
+        icon.textContent = isDark ? 'light_mode' : 'bedtime';
+    }
+    if (text) {
+        text.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+}
+
+//
 // MOSTRAR LLISTA DE CONTACTES
 //
 
 function fetchContacts() {
-    return fetch('contacts.json').then(res => res.json());
+    return fetch('api/contacts.json').then(res => res.json());
 }
 
 function showObjects(...objects) {
@@ -29,7 +48,7 @@ async function createObjects() {
     showObjects(...contacts);
 }
 
-if (url.includes('index.html')) {
+if (location.pathname == '/') {
     createObjects()
 }
 
@@ -57,6 +76,6 @@ async function createObjectByID(contactID) {
     showObjectByID(contactID, ...contacts);
 }
 
-if (url.includes('detall.html')) {
+if (url.includes('detall')) {
     createObjectByID(new URL(url).searchParams.get('id'))
 }
