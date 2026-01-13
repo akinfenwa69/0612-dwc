@@ -50,13 +50,13 @@
                     <li onclick="toggleTheme()"
                         class="flex gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded select-none">
                         <span id="theme-icon" class="material-symbols-outlined">bedtime</span>
-                        <p>Dark Mode</p>
+                        <p id="theme-text">Dark Mode</p>
                     </li>
                 </ul>
             </div>
             <div class="relative bg-[var(--sidebar-accent)] p-4 rounded-lg flex gap-2 items-center">
                 <div class="h-8 w-8 flex items-center justify-center">
-                    <img src="../images/ESCUT.png" alt="logo">
+                    <img src="images/ESCUT.png" alt="logo">
                 </div>
                 <p>Pol Poblet Pallisé</p>
                 <span class="material-symbols-outlined absolute right-4">unfold_more</span>
@@ -81,25 +81,37 @@
             </div>
 
             <div id="detalls">
-                <form action="#" id="myForm">
-                    <label for="userID">ID</label>
-                    <input type="number" name="userID" id="userID" disabled
-                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none cursor-not-allowed">
+                <form action="/" onsubmit="updateContacte()" id="myForm" class="grid grid-cols-2 gap-5">
+                    <div class="grid col-start-1">
+                        <label for="userID">ID</label>
+                        <input type="number" name="userID" id="userID" disabled
+                            class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none cursor-not-allowed">
+                    </div>
 
-                    <label for="name">Nom</label>
-                    <input type="text" name="name" id="name"
-                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    <div class="grid row-start-2">
+                        <label for="name">Nom</label>
+                        <input type="text" name="name" id="name"
+                            class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    </div>
 
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email"
-                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    <div class="grid col-start-2">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email"
+                            class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    </div>
 
-                    <label for="tel">Telèfon</label>
-                    <input type="tel" name="tel" id="tel"
-                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    <div class="grid row-start-2 col-start-2">
+                        <label for="tel">Telèfon</label>
+                        <input type="tel" name="tel" id="tel"
+                            class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    </div>
 
-                    <button type="submit"
-                        class="rounded p-2 cursor-pointer bg-[var(--secondary)] transition border border-[var(--input)] hover:bg-[var(--input)]">Enviar</button>
+                    <div class="grid grid-cols-2 col-span-2 gap-5">
+                        <button type="submit"
+                            class="rounded p-2 cursor-pointer bg-[var(--secondary)] transition border border-[var(--input)] hover:bg-[var(--input)]">Enviar</button>
+                        <button type="button" onclick="removeContacte()"
+                            class="rounded p-2 cursor-pointer bg-red-500/50 transition border border-[var(--input)] hover:bg-red-500/80">Eliminar</button>
+                    </div>
                 </form>
                 <script src="../script.js"></script>
             </div>

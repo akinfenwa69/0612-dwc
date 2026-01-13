@@ -27,13 +27,15 @@
             <div class="p-2 grid gap-2">
                 <p class="text-sm text-[var(--sidebar-foreground)]/50">General</p>
                 <ul>
-                    <li>
+                    <li class="relative flex items-center">
                         <a href="/"
-                            class="relative flex gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded">
+                            class="w-full flex gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded">
                             <span class="material-symbols-outlined">account_box</span>
                             <p>Contactes</p>
+                        </a>
+                        <a href="/new" class="absolute right-2 flex items-center justify-center rounded-full">
                             <span onclick="window.location.href='/new'"
-                                class="material-symbols-outlined absolute right-2 hover:bg-[var(--sidebar-foreground)]/20 rounded-full p-0.5">
+                                class="material-symbols-outlined hover:bg-[var(--sidebar-foreground)]/20 rounded-full p-0.5">
                                 add
                             </span>
                         </a>
@@ -54,7 +56,7 @@
             </div>
             <div class="relative bg-[var(--sidebar-accent)] p-4 rounded-lg flex gap-2 items-center">
                 <div class="h-8 w-8 flex items-center justify-center">
-                    <img src="../images/ESCUT.png" alt="logo">
+                    <img src="images/ESCUT.png" alt="logo">
                 </div>
                 <p>Pol Poblet Pallisé</p>
                 <span class="material-symbols-outlined absolute right-4">unfold_more</span>
@@ -79,22 +81,29 @@
             </div>
 
             <div>
-                <form action="" method="post">
-                    <label for="nom">Nom</label>
-                    <input type="text" name="nom" id="nom"
-                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                <form action="/" onsubmit="addContacte()" class="grid grid-cols-2 gap-5">
+                    <div class="grid">
+                        <label for="name">Nom</label>
+                        <input type="text" name="name" id="name"
+                            class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    </div>
 
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email"
-                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    <div class="grid">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email"
+                            class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    </div>
 
-                    <label for="tel">Telèfon</label>
-                    <input type="tel" name="tel" id="tel"
-                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    <div class="grid">
+                        <label for="tel">Telèfon</label>
+                        <input type="tel" name="tel" id="tel"
+                            class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+                    </div>
 
                     <button type="submit"
-                        class="rounded p-2 cursor-pointer bg-[var(--secondary)] transition border border-[var(--input)] hover:bg-[var(--input)]">Enviar</button>
+                        class="rounded p-2 cursor-pointer bg-[var(--secondary)] transition border border-[var(--input)] hover:bg-[var(--input)] row-start-3 col-span-2">Enviar</button>
                 </form>
+                <script src="../script.js"></script>
             </div>
 
             <div></div>

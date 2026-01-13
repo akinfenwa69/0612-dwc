@@ -68,12 +68,3 @@
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.439 0 0);
 }
-
-/* Custom */
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: calc(3*4px);
-    max-width: 300px;
-}

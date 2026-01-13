@@ -3,18 +3,18 @@
 ## Pàgina principal (`index.html`)
 
 - [x] Mostrar llista
-- [ ] Crear taula amb les dades inicials (LocalStorage)
+- [x] Crear taula amb les dades inicials (LocalStorage)
 - [x] Mostrar contactes amb enllaços a la pàgina de detall
-- [ ] Permet afegir un nou contacte, modiifcar-lo i esborrar-lo
+- [x] Permet afegir un nou contacte, modiifcar-lo i esborrar-lo
 
 ## Pàgina de detall (`detall.html`)
 
 - [x] Mostra informació del contacte (agafant ID de l'URL)
-- [ ] Modificar contacte
+- [x] Modificar contacte
 
 ## Pàgina d'afegir (`afegir.html`)
 
-- [ ] Afegir contacte al JSON
+- [x] Afegir contacte al JSON
 
 ## JSON (`contacts.json`)
 
@@ -22,7 +22,7 @@
 
 ## JavaScript (`script.js`)
 
-- [ ] Funcions JavaScript que gestionen la càrrega de dades i la navageció
+- [x] Funcions JavaScript que gestionen la càrrega de dades i la navageció
 
 ## Estils (`styles.css`)
 
