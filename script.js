@@ -8,18 +8,34 @@ const url = window.location.href;
 // THEME TOGGLE
 //
 
-function toggleTheme() {
-    const isDark = document.body.classList.contains('dark');
-    const icon = document.querySelector('#theme-icon');
-    const text = document.querySelector('#theme-text');
+function setTheme(isDark) {
+    const icon = document.getElementById('theme-icon');
+    const text = document.getElementById('theme-text');
 
-    document.body.classList.toggle('dark');
-
-    if (icon) {
-        icon.textContent = isDark ? 'light_mode' : 'bedtime';
+    if (isDark) {
+        localStorage.setItem("theme", "dark");
+        document.body.classList.add("dark");
+        icon.textContent = "bedtime";
+        text.textContent = "Dark Mode";
+        toggleBtn.setAttribute("aria-label", "enable light theme");
+        stylesheet.setAttribute("href", "/prism-tomorrow.css");
+    } else {
+        localStorage.setItem("theme", "light");
+        document.body.classList.remove("dark");
+        icon.textContent = "light_mode";
+        text.textContent = "Light Mode";
+        toggleBtn.setAttribute("aria-label", "enable dark theme");
+        stylesheet.setAttribute("href", "/prism-coy.css");
     }
-    if (text) {
-        text.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+}
+
+function toggleTheme() {
+    if (localStorage.getItem("theme") === "dark") {
+        setTheme(false);
+    } else if (!localStorage.getItem("theme")) {
+        setTheme(false);
+    } else {
+        setTheme(true);
     }
 }
 
@@ -34,12 +50,7 @@ function checkStorage() {
             .then(data => localStorage.setItem('contactes', JSON.stringify(data)))
             .catch(error => console.error('ERROR:', error));
     }
-    console.log(JSON.parse(localStorage.getItem('contactes')));
-
-    // check user id
-    const id = document.getElementById('userID');
-    const storage = JSON.parse(localStorage.getItem('contactes'));
-    id ? console.log(storage.findIndex(item => item.id == id.value)) : null;
+    console.log('contactes storage:', JSON.parse(localStorage.getItem('contactes')));
 }
 
 checkStorage();
@@ -175,8 +186,8 @@ function removeContacte() {
 
     const storage = JSON.parse(localStorage.getItem('contactes'));
     const contactIndex = storage.findIndex(item => item.id == id);
-    console.log(contactIndex);
-    storage.pop(storage[contactIndex]);
+
+    storage.splice(contactIndex, 1);
 
     localStorage.setItem('contactes', JSON.stringify(storage));
 
