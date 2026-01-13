@@ -8,35 +8,29 @@ const url = window.location.href;
 // THEME TOGGLE
 //
 
-function setTheme(isDark) {
-    const icon = document.getElementById('theme-icon');
-    const text = document.getElementById('theme-text');
+const themeIcon = document.getElementById('theme-icon');
+const themeText = document.getElementById('theme-text');
 
-    if (isDark) {
-        localStorage.setItem("theme", "dark");
-        document.body.classList.add("dark");
-        icon.textContent = "bedtime";
-        text.textContent = "Dark Mode";
-        toggleBtn.setAttribute("aria-label", "enable light theme");
-        stylesheet.setAttribute("href", "/prism-tomorrow.css");
-    } else {
-        localStorage.setItem("theme", "light");
-        document.body.classList.remove("dark");
-        icon.textContent = "light_mode";
-        text.textContent = "Light Mode";
-        toggleBtn.setAttribute("aria-label", "enable dark theme");
-        stylesheet.setAttribute("href", "/prism-coy.css");
+function setTheme(isDark) {
+    document.body.classList.toggle('dark', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    if (themeIcon && themeText) {
+        themeIcon.textContent = isDark ? 'bedtime' : 'light_mode';
+        themeText.textContent = isDark ? 'Dark Mode' : 'Light Mode';
     }
 }
 
 function toggleTheme() {
-    if (localStorage.getItem("theme") === "dark") {
-        setTheme(false);
-    } else if (!localStorage.getItem("theme")) {
-        setTheme(false);
-    } else {
-        setTheme(true);
-    }
+    const isDark = localStorage.getItem('theme') === 'dark';
+    setTheme(!isDark);
+}
+
+function initTheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    setTheme(isDark);
 }
 
 //
@@ -53,6 +47,7 @@ function checkStorage() {
     console.log('contactes storage:', JSON.parse(localStorage.getItem('contactes')));
 }
 
+initTheme();
 checkStorage();
 
 function resetStorage() {

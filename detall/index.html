@@ -11,19 +11,27 @@
     <title>Detall del Contacte</title>
 </head>
 
-<body class="dark bg-[var(--background)] text-[var(--foreground)] flex">
+<body onload="checkStorage()" class="bg-[var(--background)] text-[var(--foreground)] flex">
     <nav class="h-screen w-80 bg-[var(--sidebar)] text-[var(--sidebar-foreground)] flex flex-col justify-between p-2">
         <div class="grid gap-3">
-            <div class="relative bg-[var(--sidebar-accent)] p-4 rounded-lg flex gap-2 items-center">
-                <div class="flex items-center justify-center rounded-lg h-full aspect-square bg-blue-500">
-                    <span class="material-symbols-outlined">folder</span>
+            <a href="https://github.com/akinfenwa69/0612-dwc"
+                class="relative transition bg-[var(--sidebar-accent)] hover:bg-[var(--primary)]/20 p-5 cursor-pointer rounded-lg flex gap-2 items-center">
+                <div
+                    class="flex items-center justify-center rounded-lg h-full aspect-square bg-emerald-500/50 border border-[var(--border)]">
+                    <svg aria-hidden="true" focusable="false" class="octicon octicon-mark-github" viewBox="0 0 24 24"
+                        width="32" height="32" fill="currentColor" display="inline-block" overflow="visible"
+                        style="vertical-align:text-bottom">
+                        <path
+                            d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z">
+                        </path>
+                    </svg>
                 </div>
                 <div>
                     <p>Projecte Contactes</p>
-                    <p class="text-xs">DAW2A 0612</p>
+                    <p class="text-xs">GitHub</p>
                 </div>
                 <span class="material-symbols-outlined absolute right-4">unfold_more</span>
-            </div>
+            </a>
             <div class="p-2 grid gap-2">
                 <p class="text-sm text-[var(--sidebar-foreground)]/50">General</p>
                 <ul>
@@ -54,7 +62,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="relative bg-[var(--sidebar-accent)] p-4 rounded-lg flex gap-2 items-center">
+            <div
+                class="relative transition bg-[var(--sidebar-accent)] hover:bg-[var(--primary)]/20 cursor-pointer p-5 rounded-lg flex gap-2 items-center">
                 <div class="h-8 w-8 flex items-center justify-center">
                     <img src="images/ESCUT.png" alt="logo">
                 </div>
@@ -65,9 +74,6 @@
     </nav>
     <main class="flex flex-1 flex-col gap-4 p-4">
         <div class="flex gap-3 items-center h-8">
-            <span
-                class="material-symbols-outlined cursor-pointer transition hover:bg-[var(--accent)]/70 rounded-full p-2">space_dashboard</span>
-            <hr class="border h-full text-[var(--muted-foreground)]">
             <div class="flex items-center">
                 <a href="/" class="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]">Home</a>
                 <span class="material-symbols-outlined text-[var(--muted-foreground)]">chevron_right</span>
