@@ -4,12 +4,12 @@
 
 - [x] Mostrar llista
 - [ ] Crear taula amb les dades inicials (LocalStorage)
-- [ ] Mostrar contactes amb enllaços a la pàgina de detall
+- [x] Mostrar contactes amb enllaços a la pàgina de detall
 - [ ] Permet afegir un nou contacte, modiifcar-lo i esborrar-lo
 
 ## Pàgina de detall (`detall.html`)
 
-- [ ] Mostra informació del contacte (agafant ID de l'URL)
+- [x] Mostra informació del contacte (agafant ID de l'URL)
 - [ ] Modificar contacte
 
 ## Pàgina d'afegir (`afegir.html`)
@@ -26,4 +26,4 @@
 
 ## Estils (`styles.css`)
 
-- [ ] Estils per a la correcta visualització de les pàgines web
+- [x] Estils per a la correcta visualització de les pàgines web

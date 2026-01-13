@@ -71,14 +71,40 @@
             <div class="flex items-center">
                 <a href="/" class="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]">Home</a>
                 <span class="material-symbols-outlined text-[var(--muted-foreground)]">chevron_right</span>
-                <a href="/detall"
-                    class="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]">Detall</a>
+                <p class="text-[var(--foreground)]">Detall</p>
             </div>
         </div>
         <div class="p-10 grid gap-3 bg-[var(--card)] rounded-xl border border-[var(--primary)]/20">
-            <div id="main">
+            <div class="flex flex-col gap-2 items-center justify-center">
+                <h1 class="text-3xl" id="title-detalls">Contacte no seleccionat</h1>
+                <p class="text-[var(--muted-foreground)]">Informació de un contacte en específic.</p>
+            </div>
+
+            <div id="detalls">
+                <form action="#" id="myForm">
+                    <label for="userID">ID</label>
+                    <input type="number" name="userID" id="userID" disabled
+                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none cursor-not-allowed">
+
+                    <label for="name">Nom</label>
+                    <input type="text" name="name" id="name"
+                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email"
+                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+
+                    <label for="tel">Telèfon</label>
+                    <input type="tel" name="tel" id="tel"
+                        class="border rounded p-2 transition border-[var(--input)] focus:border-[var(--primary)] focus:outline-none">
+
+                    <button type="submit"
+                        class="rounded p-2 cursor-pointer bg-[var(--secondary)] transition border border-[var(--input)] hover:bg-[var(--input)]">Enviar</button>
+                </form>
                 <script src="../script.js"></script>
             </div>
+
+            <div></div>
         </div>
     </main>
 </body>

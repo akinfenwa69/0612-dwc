@@ -69,22 +69,31 @@
                 class="material-symbols-outlined cursor-pointer transition hover:bg-[var(--accent)]/70 rounded-full p-2">space_dashboard</span>
             <hr class="border h-full text-[var(--muted-foreground)]">
             <div class="flex items-center">
-                <a href="/" class="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]">Home</a>
+                <p class="ext-[var(--foreground)]">Home</p>
             </div>
         </div>
-        <div class="p-10 grid gap-3 bg-[var(--card)] rounded-xl border border-[var(--primary)]/20">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nom</th>
-                        <th>Detalls</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                    <script src="script.js"></script>
-                </tbody>
-            </table>
+        <div class="p-10 grid gap-5 bg-[var(--card)] rounded-xl border border-[var(--primary)]/20">
+            <div class="flex flex-col gap-2 items-center justify-center">
+                <h1 class="text-3xl">Llista de Contactes</h1>
+                <p class="text-[var(--muted-foreground)]">Una llista de contactes personals i professionals.</p>
+            </div>
+
+            <div>
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr class="bg-[var(--accent)]/70">
+                            <th class="p-3 border border-[var(--primary)]/50">ID</th>
+                            <th class="p-3 border border-[var(--primary)]/50">Nom</th>
+                            <th class="p-3 border border-[var(--primary)]/50">Detalls</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <script src="script.js"></script>
+                    </tbody>
+                </table>
+            </div>
+
+            <div></div>
         </div>
     </main>
 </body>

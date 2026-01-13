@@ -28,7 +28,7 @@ function toggleTheme() {
 //
 
 function fetchContacts() {
-    return fetch('api/contacts.json').then(res => res.json());
+    return fetch('/api/contacts.json').then(res => res.json());
 }
 
 function showObjects(...objects) {
@@ -36,9 +36,9 @@ function showObjects(...objects) {
     objects[0].map(item => {
         const myTD = document.createElement('tr');
         myTD.innerHTML =
-            `<td>${item.id}</td>
-            <td>${item.nom}</td>
-            <td><a href='detall.html?id=${item.id}'>Detalls</a></td>`;
+            `<td class="p-3 border border-[var(--primary)]/50">${item.id}</td>
+             <td class="p-3 border border-[var(--primary)]/50">${item.nom}</td>
+             <td class="p-3 border border-[var(--primary)]/50"><a href='/detall/index.html?id=${item.id}'>Detalls</a></td>`;
         myTBODY.appendChild(myTD);
     });
 }
@@ -57,18 +57,30 @@ if (location.pathname == '/') {
 //
 
 function showObjectByID(contactID, ...objects) {
-    const myMAIN = document.getElementById('main');
-    objects[0].map(item => {
-        if (item.id === contactID) {
-            const myDIV = document.createElement('div');
-            myDIV.innerHTML =
-                `<p>ID: ${item.id}</p>
-                <p>Nom: ${item.nom}</p>
-                <p>Email: ${item.email}</p>
-                <p>Telèfon: ${item.telefon}</p>`;
-            myMAIN.appendChild(myDIV);
-        }
-    });
+    const title = document.getElementById('title-detalls');
+
+    const user = objects[0].filter(item => item.id == contactID)[0];
+    title.textContent = `Detalls de ${user.nom}`;
+
+    // id input (disabled)
+    const id_input = document.getElementById('userID');
+    id_input.placeholder = user.id;
+    id_input.value = user.id;
+
+    // name input
+    const name_input = document.getElementById('name');
+    name_input.placeholder = user.nom;
+    name_input.value = user.nom;
+
+    // email input
+    const email_input = document.getElementById('email');
+    email_input.placeholder = user.email;
+    email_input.value = user.email;
+
+    // tel input
+    const tel_input = document.getElementById('tel');
+    tel_input.placeholder = user.telefon;
+    tel_input.value = user.telefon;
 }
 
 async function createObjectByID(contactID) {
@@ -77,5 +89,6 @@ async function createObjectByID(contactID) {
 }
 
 if (url.includes('detall')) {
-    createObjectByID(new URL(url).searchParams.get('id'))
+    console.log('ID Contacte:', new URL(url).searchParams.get('id'));
+    createObjectByID(new URL(url).searchParams.get('id'));
 }
