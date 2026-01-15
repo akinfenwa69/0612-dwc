@@ -4,26 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/styles/globals.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <title>Exercici 1</title>
 </head>
 
-<body>
+<body onload="initTheme()" class="p-5">
+  <script src="/script.js"></script>
+  <div class="card rounded-xl p-10 bg-[var(--card)] border border-[var(--border)] grid gap-5">
+    <div class="card-header grid text-center gap-3">
+      <h1 class="text-5xl">Exercici 1</h1>
+      <p class="text-[var(--muted-foreground)]">Mostra el nom i cognom/s</p>
+    </div>
 
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name">
-  <label for="surname">Surname</label>
-  <input type="text" name="surname" id="surname">
-  <button onclick="ConfirmAlert()">SUBMIT</button>
+    <div class="card-content grid gap-3">
+      <form onsubmit="confirmAlert()" class="grid gap-3">
+        <div class="grid">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required class="border border-[var(--border)] rounded-xl p-3">
+        </div>
 
+        <div class="grid">
+          <label for="surname">Surname</label>
+          <input type="text" name="surname" id="surname" required class="border border-[var(--border)] rounded-xl p-3">
+        </div>
 
-  <script>
-    const name = document.getElementById('name').value;
-    const surname = document.getElementById('surname').value;
+        <button type="submit"
+          class="border border-[var(--border)] bg-[var(--accent)]/70 hover:bg-[var(--accent)] rounded-xl p-3 cursor-pointer">SUBMIT</button>
+      </form>
+    </div>
 
-    function ConfirmAlert() {
-      confirm(`És vostè ${surname}, ${name}?`) ? alert("Has acceptat") : alert("No has acceptat")
-    }
-  </script>
+    <div class="card-footer grid gap-3"></div>
+  </div>
 </body>
 
 </html>

@@ -4,19 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Exercici 3.1</title>
 </head>
 
-<body>
-    <nav class="bg-blue-300 flex items-center gap-3 h-20 px-3">
+<body onload="initTheme()">
+    <script src="/script.js"></script>
+    <nav class="bg-[var(--sidebar)] text-[var(--sidebar-foreground)] flex items-center gap-3 h-20 px-3">
         <img src="/images/vib-logo.png" alt="logo" class="h-12">
         <ul class="flex h-full">
-            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-blue-400"
+            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-[var(--sidebar-accent)]"
                 onclick="iframeChange('pop-up')">Finestra</li>
-            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-blue-400"
+            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-[var(--sidebar-accent)]"
                 onclick="iframeChange('title')">Títol</li>
-            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-blue-400"
+            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-[var(--sidebar-accent)]"
                 onclick="iframeChange('text')">Text de colors</li>
         </ul>
     </nav>

@@ -4,41 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="./assets/images/ESCUT.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Exercici 3.2</title>
 </head>
 
-<body onload="onload()" class="p-8">
+<body onload="onload(); initTheme()" class="p-5">
+    <script src="/script.js"></script>
+    <div class="p-10 grid gap-3 rounded-xl border border-[var(--border)]">
+        <!--Exercici 1: Modifica l’exemple de cookies per tal que es mostri en un títol (h3) el nom introduït per l’usuari en el formulari. -->
+        <h3 id="title" class="text-2xl font-bold">aaa</h3>
 
-    <!--Exercici 1: Modifica l’exemple de cookies per tal que es mostri en un títol (h3) el nom introduït per l’usuari en el formulari. -->
-    <h3 id="title" class="text-2xl font-bold">aaa</h3>
+        <!--Exercici 5: Modifica l’exercici anterior per a que mostri la data i l’hora de l’última visita a la pàgina.-->
+        <sub id="last_visit">Last visited: 213213213</sub>
 
-    <!--Exercici 5: Modifica l’exercici anterior per a que mostri la data i l’hora de l’última visita a la pàgina.-->
-    <sub id="last_visit">Last visited: 213213213</sub>
+        <form action="" class="flex flex-col gap-4 mt-5" onsubmit="createCookie()">
+            <label for="name">Nom:</label>
+            <input placeholder="" type="text" id="name" name="name"
+                class="p-2 rounded bg-white border border-gray-500 focus:border-black outline-none">
 
-    <form action="" class="flex flex-col gap-4 mt-5" onsubmit="createCookie()">
-        <label for="name">Nom:</label>
-        <input placeholder="" type="text" id="name" name="name"
-            class="p-2 rounded bg-white border border-gray-500 focus:border-black outline-none">
+            <!-- Exercici 3: Modifica l’exercici anterior per a que el formulari també demani el cognom, el guardi en una cookie i es mostri el nom i el cognom. -->
+            <label for="surname">Cognom:</label>
+            <input placeholder="" type="text" id="surname" name="surname"
+                class="p-2 rounded bg-white border border-gray-500 focus:border-black outline-none">
 
-        <!-- Exercici 3: Modifica l’exercici anterior per a que el formulari també demani el cognom, el guardi en una cookie i es mostri el nom i el cognom. -->
-        <label for="surname">Cognom:</label>
-        <input placeholder="" type="text" id="surname" name="surname"
-            class="p-2 rounded bg-white border border-gray-500 focus:border-black outline-none">
+            <!--Exercici 4: Modifica l’exercici anterior per a que l’usuari pugui escollir el color de fons en que vol veure la pàgina. (Pot posar un link per color, 3 o 4 és suficient). Llavors caldrà que es vegi el color seleccionat en re-carregar la pàgina web.-->
+            <label for="bg-color">Color de fons:</label>
+            <select title="bg-color" name="bg-color" id="bg_color"
+                class="p-2 rounded bg-white border border-gray-500 focus:border-black cursor-pointer">
+                <option value="#DBEAFE">Blau</option>
+                <option value="#ECFCCA">Verd</option>
+                <option value="#FFE2E2">Vermell</option>
+                <option value="#FEF9C2">Groc</option>
+            </select>
 
-        <!--Exercici 4: Modifica l’exercici anterior per a que l’usuari pugui escollir el color de fons en que vol veure la pàgina. (Pot posar un link per color, 3 o 4 és suficient). Llavors caldrà que es vegi el color seleccionat en re-carregar la pàgina web.-->
-        <label for="bg-color">Color de fons:</label>
-        <select title="bg-color" name="bg-color" id="bg_color"
-            class="p-2 rounded bg-white border border-gray-500 focus:border-black cursor-pointer">
-            <option value="#DBEAFE">Blau</option>
-            <option value="#ECFCCA">Verd</option>
-            <option value="#FFE2E2">Vermell</option>
-            <option value="#FEF9C2">Groc</option>
-        </select>
-
-        <button type="submit" class="bg-blue-300 p-3 text-lg cursor-pointer hover:bg-blue-400">Enviar</button>
-    </form>
+            <button type="submit" class="bg-blue-300 p-3 text-lg cursor-pointer hover:bg-blue-400">Enviar</button>
+        </form>
+    </div>
 
     <script src="script.js"></script>
 </body>

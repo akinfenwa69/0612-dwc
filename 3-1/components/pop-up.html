@@ -4,38 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>General | Exercici 3</title>
 </head>
 
-<body>
+<body onload="initTheme()">
+    <script src="/script.js"></script>
 
     <!-- Exercici 4: Crea una pàgina amb tres botons -->
 
     <h1 class="text-3xl font-bold mb-3">FINESTRA</h1>
 
     <div class="flex gap-2 flex-wrap mb-3">
-        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleWindow()">
+        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleWindow()">
             Obrir finestra</button>
-        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleLeft()">
+        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleLeft()">
             Moure esquerra</button>
-        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleRight()">
+        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleRight()">
             Moure dreta</button>
-        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleLocalWindow()">
+        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleLocalWindow()">
             Obrir finestra local</button>
 
         <!-- Exercici 1: Modifica ex02 per a que la finestra es modifiqui i tingui 50 pixels més tant d’amplada com d’alçada. I la seva posició es mogui 50 pixels a la dreta i 50 pixels cap baix. (Usa les funcions moveBy() i resizeBy() ) -->
 
-        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleModWindow()">
+        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleModWindow()">
             Modificar finestra</button>
     </div>
 
     <!-- Exercici 2: Modifica ex04 per tal que apareguin dos botons, un que permet esborrar l’interval i un altre que permet crear-lo de nou. -->
 
     <div>
-        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleAddInterval()">
+        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleAddInterval()">
             Crear interval</button>
-        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleRemoveInterval()">
+        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleRemoveInterval()">
             Esborrar interval</button>
     </div>
 

@@ -4,74 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Exercici 2</title>
 </head>
 
-<body>
-    <form action="">
-        <h1>Exercici 1: Calcular lletra DNI</h1>
-        <input type="number" name="dni" id="dni" placeholder="Afegeix el núnemro del DNI...">
-        <button onclick="calcDNI()">Calcular</button>
-        <!-- <span id="displayLletra"></span> -->
-    </form>
+<body onload="initTheme()" class="p-5">
+    <script src="/script.js"></script>
+    <div class="card rounded-xl p-10 bg-[var(--card)] border border-[var(--border)] grid gap-5">
+        <div class="card-header grid text-center gap-3">
+            <h1 class="text-5xl">Exercici 2</h1>
+            <p class="text-[var(--muted-foreground)]">Càlcul de lletra DNI i diumenge de Pasqua</p>
+        </div>
 
-    <form action="">
-        <h1>Exercici 2: Calcular diumenge de Pasqua</h1>
-        <input type="number" name="any" id="any" placeholder="Introdueix l'any...">
-        <button onclick="calcDiumenge()">Calcular</button>
-    </form>
+        <div class="card-content grid gap-3">
+            <form class="grid gap-3 mb-5" onsubmit="calcDNI()">
+                <div class="grid gap-2">
+                    <h2 class="text-3xl">Calcular lletra DNI</h2>
+                    <input type="number" name="dni" id="dni" placeholder="Afegeix el núnemro del DNI..."
+                        class="border border-[var(--border)] p-3 rounded-xl">
+                </div>
 
-    <style>
-        input,
-        button {
-            padding: 8px 16px;
-            border-radius: 4px;
-            border: 1px solid black;
-            font-size: 16px;
-        }
+                <button type="submit"
+                    class="p-3 border border-[var(--border)] rounded-xl bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer">
+                    Calcular
+                </button>
+                <!-- <span id="displayLletra"></span> -->
+            </form>
 
-        input {
-            width: 250px;
-        }
+            <form action="" class="grid gap-3" onsubmit="calcDiumenge()">
+                <div class="grid gap-2">
+                    <h2 class="text-3xl">Calcular diumenge de Pasqua</h2>
+                    <input type="number" name="any" id="any" placeholder="Introdueix l'any..."
+                        class="border border-[var(--border)] p-3 rounded-xl">
+                </div>
 
-        button {
-            cursor: pointer;
-        }
-    </style>
+                <button type="submit"
+                    class="p-3 border border-[var(--border)] rounded-xl bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer">
+                    Calcular
+                </button>
+            </form>
+        </div>
 
-    <script>
-        function calcDNI() {
-            const llista = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E',];
-
-            const num = document.getElementById('dni').value;
-            const residu = num % 23;
-            alert(`Residu ${residu}`);
-            const lletra = llista[residu];
-            alert(`Lletra ${lletra}`);
-
-            //document.getElementById('displayLletra').textContent = `Lletra: ${lletra}`
-        }
-
-        function calcDiumenge() {
-            const year = document.getElementById('any').value;
-            var month = 3;
-
-            var A = year % 19;
-            var B = year % 4;
-            var C = year % 7;
-            var D = (19 * A + 24) % 30;
-            var E = (2 * B + 4 * C + 6 * D + 5) % 7;
-
-            var day = 22 + D + E;
-
-            if (day > 31) {
-                day -= 31;
-                month += 1;
-            }
-
-            alert(`${day}/${month}/${year}`)
-        }
-    </script>
+        <div class="card-footer grid gap-3"></div>
+    </div>
 </body>
 
 </html>

@@ -4,11 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Moviment | Exercici 3</title>
 </head>
 
-<body class="p-4">
+<body onload="initTheme()" class="p-4">
+    <script src="/script.js"></script>
 
     <!-- Exercici 5: Crea una finestra amb un botó amb l'etiqueta "iniciar moviment". Quan es premi el botó s'obrirà una segona finestra de 200x200 pixels que es mourà sola per la pantalla. experimenta amb diferents moviments. -->
 

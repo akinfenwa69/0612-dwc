@@ -4,14 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Detall del Contacte</title>
 </head>
 
-<body onload="checkStorage()" class="bg-[var(--background)] text-[var(--foreground)] flex">
+<body onload="checkStorage(); initTheme()" class="bg-[var(--background)] text-[var(--foreground)] flex">
+    <script src="/script.js"></script>
+
     <nav class="h-screen w-80 bg-[var(--sidebar)] text-[var(--sidebar-foreground)] flex flex-col justify-between p-2">
         <div class="grid gap-3">
             <a href="https://github.com/akinfenwa69/0612-dwc"
@@ -76,7 +80,8 @@
     <main class="flex flex-1 flex-col gap-4 p-4">
         <div class="flex gap-3 items-center h-8">
             <div class="flex items-center">
-                <a href="/projecte/1" class="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]">Home</a>
+                <a href="/projecte/1"
+                    class="text-[var(--muted-foreground)] transition hover:text-[var(--foreground)]">Home</a>
                 <span class="material-symbols-outlined text-[var(--muted-foreground)]">chevron_right</span>
                 <p class="text-[var(--foreground)]">Detall</p>
             </div>

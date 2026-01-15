@@ -4,19 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>Exercici 3</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Text | Exercici 3</title>
 </head>
 
-<body>
+<body onload="initTheme()">
+    <script src="/script.js"></script>
 
-    <div>
+    <div class="grid gap-3">
         <!-- Exercici 7: Crea una pàgina com la de l'exercici anterior però afegint la característica que cada caràcter sigui d'un color diferent. -->
         <h1 id="title" class="text-3xl font-bold mb-3"></h1>
 
-        <span onclick="window.location.reload()"
-            class="cursor-pointer px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400 select-none">Reiniciar</span>
+        <button onclick="window.location.reload()"
+            class="cursor-pointer px-5 py-3 w-fit rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] select-none">
+            Reiniciar
+        </button>
     </div>
 
     <script>
