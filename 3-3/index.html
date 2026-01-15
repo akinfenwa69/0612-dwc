@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/images/ESCUT.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>EX3-3</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body class="p-12 flex justify-center">
+
+    <form action="" id="myForm" style="max-width: 60em; width: 50em;" onsubmit="return validarFormulari()">
+        <div class="flex gap-3 w-full">
+            <!-- Exercici 1 -->
+            <section class="flex flex-col gap-2 w-1/2">
+                <h1 class="text-xl font-bold">Exercici 1</h1>
+                <div class="floating-label">
+                    <input type="text" name="nom" id="nom" placeholder="" class="border p-2">
+                    <label for="nom">Nom</label>
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="error text-sm" id="err_nom"></span>
+                </div>
+                <div class="floating-label">
+                    <input type="email" name="email" id="email" placeholder="" class="border p-2">
+                    <label for="email">Correu electrònic</label>
+                    <span class="material-symbols-outlined">mail</span>
+                    <span class="error text-sm" id="err_email"></span>
+                </div>
+                <div class="floating-label">
+                    <input type="tel" name="telefon" id="telefon" placeholder="" class="border p-2">
+                    <label for="telefon">Telèfon</label>
+                    <span class="material-symbols-outlined">call</span>
+                    <span class="error text-sm" id="err_telefon"></span>
+                </div>
+                <div class="mt-6 flex flex-col gap-2">
+                    <label for="missatge" class="flex gap-2"><span
+                            class="material-symbols-outlined">comment</span>Missatge</label>
+                    <textarea name="missatge" id="missatge" placeholder="Escriu un missatge..."
+                        class="p-3 w-full"></textarea>
+                    <span class="error text-sm" id="err_missatge"></span>
+                </div>
+            </section>
+
+            <!-- Exercici 2 -->
+            <section class="flex flex-col gap-2 w-1/2">
+                <h1 class="text-xl font-bold">Exercici 2</h1>
+                <div class="floating-label">
+                    <input type="number" name="num-enters" id="num-enters" placeholder="" class="border p-2">
+                    <label for="num-enters">Nombre enter</label>
+                    <span class="material-symbols-outlined">123</span>
+                    <span class="error text-sm" id="err_num_enters"></span>
+                </div>
+                <div class="floating-label">
+                    <input type="text" name="num-decimals" id="num-decimals" placeholder="" class="border p-2">
+                    <label for="num-decimals">Nombre decimal</label>
+                    <span class="material-symbols-outlined">decimal_increase</span>
+                    <span class="error text-sm" id="err_num_decimals"></span>
+                </div>
+                <div class="floating-label">
+                    <input type="number" name="cp" id="cp" placeholder="">
+                    <label for="cp">Codi postal</label>
+                    <span class="material-symbols-outlined">location_on</span>
+                    <span class="error text-sm" id="err_cp"></span>
+                </div>
+                <div class="mt-6 flex flex-col gap-2">
+                    <label for="data-naixement" class="flex gap-2"><span
+                            class="material-symbols-outlined">cake</span>Data
+                        naixement</label>
+                    <input type="date" name="data-naixement" id="data-naixement" class="border p-2">
+                    <span class="error text-sm" id="err_data_naixament"></span>
+                </div>
+                <div class="mt-6 flex flex-col gap-2">
+                    <label for="data-inici" class="flex gap-2"><span
+                            class="material-symbols-outlined">calendar_add_on</span>Data inici</label>
+                    <input type="date" name="data-inici" id="data-inici" class="border p-2">
+                    <span class="error text-sm" id="err_data_inici"></span>
+                </div>
+                <div class="mt-6 flex flex-col gap-2">
+                    <label for="data-final" class="flex gap-2"><span
+                            class="material-symbols-outlined">calendar_check</span>Data final</label>
+                    <input type="date" name="data-final" id="data-final" class="border p-2">
+                    <span class="error text-sm" id="err_data_final"></span>
+                </div>
+            </section>
+        </div>
+
+        <div class="flex gap-1 mt-10 h-16">
+            <button type="submit"
+                class="bg-blue-600 hover:bg-blue-700 text-white p-3 text-xl rounded flex-1">Enviar</button>
+            <div onclick="esborrarValors()"
+                class="esborrarValors h-16 w-16 border-2 border-red-600 text-white rounded cursor-pointer flex items-center justify-center">
+                <span class="material-symbols-outlined">delete</span>
+            </div>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

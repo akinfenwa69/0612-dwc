@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Moviment | Exercici 3</title>
+</head>
+
+<body class="p-4">
+
+    <!-- Exercici 5: Crea una finestra amb un botó amb l'etiqueta "iniciar moviment". Quan es premi el botó s'obrirà una segona finestra de 200x200 pixels que es mourà sola per la pantalla. experimenta amb diferents moviments. -->
+
+    <h1 class="text-3xl font-bold mb-3">MOURE FINESTRA</h1>
+
+    <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleWindowMovement()">
+        Iniciar moviment</button>
+
+    <!-- Exercici 3: Modifica ex05 per tal que la URL s’obri en una finestra nova. -->
+    <a href="https://www.google.com" target="_blank" rel="noopener" class="text-blue-700 underline hover:text-blue-800">
+        Enllaç una altra finestra</a>
+
+    <script>
+        const handleWindowMovement = () => {
+            const random = window.open('', '', 'width=200,height=200');
+            random.moveTo(screen.width / 2, screen.height / 2);
+            setInterval(function () {
+                random.moveBy(Math.floor(Math.random() * 30) - 15, Math.floor(Math.random() * 30) - 15)
+            }, 50);
+        }
+    </script>
+
+</body>
+
+</html>

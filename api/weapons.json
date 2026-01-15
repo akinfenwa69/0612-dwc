@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nom": "Arma 1",
+        "atac": 30,
+        "defensa": 20
+    },
+    {
+        "id": 2,
+        "nom": "Arma 2",
+        "atac": 50,
+        "defensa": 5
+    },
+    {
+        "id": 3,
+        "nom": "Arma 3",
+        "atac": 25,
+        "defensa": 40
+    }
+]

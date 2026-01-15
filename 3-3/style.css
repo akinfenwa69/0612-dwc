@@ -1,0 +1,128 @@
+:root {
+    --bg: #1a1a1a;
+    --fg: #f0f0f0;
+    --gray: #7a7a7a;
+    --primary: #4a90e2;
+    --secondary: #50e3c2;
+    --error: #e94e77;
+    --success: #7ed321;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* FORM STYLES */
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+div {
+    position: relative;
+
+    span.error {
+        position: absolute;
+        top: 100%;
+        color: red;
+        left: 0;
+    }
+}
+
+.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.div2 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.div3 {
+    grid-area: 2 / 1 / 3 / 3;
+}
+
+/* FLOATING LABEL */
+.floating-label {
+    position: relative;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+
+    input {
+        width: 100%;
+        padding: 16px 10px 12px 48px;
+    }
+
+    label {
+        position: absolute;
+        left: 48px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray);
+        pointer-events: none;
+        transition: all 0.2s ease-out;
+    }
+
+    input:focus+label,
+    input:not(:placeholder-shown)+label {
+        top: 0;
+        left: calc(48px - 8px);
+        color: var(--fg);
+        background-color: var(--bg);
+        padding: 0 8px;
+    }
+
+    span {
+        position: absolute;
+        left: 10px;
+
+        &.error {
+            top: 100%;
+            color: red;
+        }
+    }
+}
+
+input {
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    font-size: 16px;
+    background: none;
+
+    &:focus {
+        outline: none;
+        border-color: var(--fg);
+    }
+}
+
+textarea {
+    resize: vertical;
+    height: 148px;
+    min-height: 148px;
+    max-height: 254px;
+    border: 1px solid var(--gray);
+    border-radius: 4px;
+    font-size: 16px;
+    background: none;
+
+    &::placeholder {
+        color: var(--gray);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--fg);
+    }
+}
+
+.esborrarValors:hover {
+    background-color: oklch(63.7% 0.237 25.331 / .2);
+}

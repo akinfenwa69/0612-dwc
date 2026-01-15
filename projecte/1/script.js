@@ -79,7 +79,7 @@ function showObjects(...objects) {
         myTD.innerHTML =
             `<td class="p-3 border border-[var(--primary)]/50">${item.id}</td>
              <td class="p-3 border border-[var(--primary)]/50">${item.nom}</td>
-             <td class="p-3 border border-[var(--primary)]/50"><a href='/detall/index.html?id=${item.id}'>Detalls</a></td>`;
+             <td class="p-3 border border-[var(--primary)]/50"><a href='/projecte/1/detall/index.html?id=${item.id}'>Detalls</a></td>`;
         myTBODY.appendChild(myTD);
     });
 }
@@ -89,7 +89,7 @@ async function createObjects() {
     showObjects(...contacts);
 }
 
-if (location.pathname == '/') {
+if (location.pathname == '/projecte/1') {
     createObjects()
 }
 
@@ -186,5 +186,5 @@ function removeContacte() {
 
     localStorage.setItem('contactes', JSON.stringify(storage));
 
-    window.location.href = "/";
+    window.location.href = "/projecte/1";
 }

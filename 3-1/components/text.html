@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Exercici 3</title>
+    <title>Text | Exercici 3</title>
+</head>
+
+<body>
+
+    <div>
+        <!-- Exercici 7: Crea una pàgina com la de l'exercici anterior però afegint la característica que cada caràcter sigui d'un color diferent. -->
+        <h1 id="title" class="text-3xl font-bold mb-3"></h1>
+
+        <span onclick="window.location.reload()"
+            class="cursor-pointer px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400 select-none">Reiniciar</span>
+    </div>
+
+    <script>
+        const title = document.getElementById('title');
+
+        const array = 'TEXT DE COLORS'.split('');
+
+        for (let i = 0; i < array.length; i++) {
+            var color = [];
+            for (let j = 0; j < 3; j++) {
+                color.push(Math.floor(Math.random() * 255));
+            }
+            const span = document.createElement('span');
+            span.textContent = array[i]
+            span.style.color = `rgb(${color})`
+            title.append(span)
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+[
+    {
+        "nom": "Personatge 1",
+        "genere": "Genere 1",
+        "nivell": 4,
+        "armes": [
+            3,
+            1
+        ]
+    },
+    {
+        "nom": "Personatge 2",
+        "genere": "Genere 2",
+        "nivell": 2,
+        "armes": [
+            2
+        ]
+    }
+]

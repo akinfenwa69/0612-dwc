@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>General | Exercici 3</title>
+</head>
+
+<body>
+
+    <!-- Exercici 4: Crea una pàgina amb tres botons -->
+
+    <h1 class="text-3xl font-bold mb-3">FINESTRA</h1>
+
+    <div class="flex gap-2 flex-wrap mb-3">
+        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleWindow()">
+            Obrir finestra</button>
+        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleLeft()">
+            Moure esquerra</button>
+        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleRight()">
+            Moure dreta</button>
+        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleLocalWindow()">
+            Obrir finestra local</button>
+
+        <!-- Exercici 1: Modifica ex02 per a que la finestra es modifiqui i tingui 50 pixels més tant d’amplada com d’alçada. I la seva posició es mogui 50 pixels a la dreta i 50 pixels cap baix. (Usa les funcions moveBy() i resizeBy() ) -->
+
+        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleModWindow()">
+            Modificar finestra</button>
+    </div>
+
+    <!-- Exercici 2: Modifica ex04 per tal que apareguin dos botons, un que permet esborrar l’interval i un altre que permet crear-lo de nou. -->
+
+    <div>
+        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleAddInterval()">
+            Crear interval</button>
+        <button class="px-5 py-3 rounded-full bg-blue-200 hover:bg-blue-400" onclick="handleRemoveInterval()">
+            Esborrar interval</button>
+    </div>
+
+    <script>
+        var popup;
+        var retard;
+
+        // Exercici 4: Obrir finestra. Obre  una finestra de 200x200 pixels centrada a la pantalla que carrega una pàgina web qualsevol.
+        function handleWindow() {
+            popup = window.open('', '', 'width=200, height=200');
+        }
+
+        // Exercici 4: Moure esquerra. Mou la finestra oberta pel botó obrir 10 pixels a l'esquerra.
+        function handleLeft() {
+            popup.moveBy(-10, 0);
+        }
+
+        // Exercici 4: Moure dreta. Mou la finestra oberta pel botó obrir 10 pixels a la dreta. -->
+        const handleRight = () => {
+            popup.moveBy(10, 0);
+        }
+
+        // Exercici 5: Crea una finestra amb un botó amb l'etiqueta "iniciar moviment". Quan es premi el botó s'obrirà una segona finestra de 200x200 pixels que es mourà sola per la pantalla. experimenta amb diferents moviments.
+        const handleLocalWindow = () => {
+            window.open('./window.html', 'Window', 'height=200,width=200')
+        }
+
+        // Exercici 1
+        const handleModWindow = () => {
+            popup.resizeBy(50, 50);
+            popup.moveBy(50, 50);
+        }
+
+        // Exercici 2: Crear interval
+        const handleAddInterval = () => {
+            popup ? retard = setInterval(handleRight, 1000) : null;
+        }
+
+        // Exercici 2: Esborrar interval
+        const handleRemoveInterval = () => {
+            clearInterval(retard);
+        }
+    </script>
+
+</body>
+
+</html>

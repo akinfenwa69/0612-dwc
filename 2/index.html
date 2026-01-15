@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <h1>Exercici 1: Calcular lletra DNI</h1>
+        <input type="number" name="dni" id="dni" placeholder="Afegeix el núnemro del DNI...">
+        <button onclick="calcDNI()">Calcular</button>
+        <!-- <span id="displayLletra"></span> -->
+    </form>
+
+    <form action="">
+        <h1>Exercici 2: Calcular diumenge de Pasqua</h1>
+        <input type="number" name="any" id="any" placeholder="Introdueix l'any...">
+        <button onclick="calcDiumenge()">Calcular</button>
+    </form>
+
+    <style>
+        input,
+        button {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: 1px solid black;
+            font-size: 16px;
+        }
+
+        input {
+            width: 250px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function calcDNI() {
+            const llista = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E',];
+
+            const num = document.getElementById('dni').value;
+            const residu = num % 23;
+            alert(`Residu ${residu}`);
+            const lletra = llista[residu];
+            alert(`Lletra ${lletra}`);
+
+            //document.getElementById('displayLletra').textContent = `Lletra: ${lletra}`
+        }
+
+        function calcDiumenge() {
+            const year = document.getElementById('any').value;
+            var month = 3;
+
+            var A = year % 19;
+            var B = year % 4;
+            var C = year % 7;
+            var D = (19 * A + 24) % 30;
+            var E = (2 * B + 4 * C + 6 * D + 5) % 7;
+
+            var day = 22 + D + E;
+
+            if (day > 31) {
+                day -= 31;
+                month += 1;
+            }
+
+            alert(`${day}/${month}/${year}`)
+        }
+    </script>
+</body>
+
+</html>
