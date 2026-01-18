@@ -2,10 +2,10 @@
 // THEME TOGGLE
 //
 
-const themeIcon = document.getElementById('theme-icon');
-const themeText = document.getElementById('theme-text');
-
 function setTheme(isDark) {
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
     document.body.classList.toggle('dark', isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
@@ -21,8 +21,7 @@ function toggleTheme() {
 }
 
 function initTheme() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    const isDark = savedTheme ? savedTheme === 'dark' : true;
     setTheme(isDark);
 }
