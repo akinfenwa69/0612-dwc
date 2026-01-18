@@ -27,11 +27,17 @@ function resetStorage() {
 
 function createDefault() {
     const storage = JSON.parse(localStorage.getItem('contactes'));
-    const user = { 'id': storage.sort((a, b) => b.id - a.id)[0].id + 1, 'nom': name, 'email': email, 'telefon': tel };
+    const lastID = storage.sort((a, b) => b.id - a.id)[0].id + 1;
 
-    storage.push(user);
-
+    // Add 3 default contacts
+    const defaultContacts = [
+        { 'id': lastID, 'nom': 'Maria', 'email': 'maria@example.com', 'telefon': '555666777' },
+        { 'id': lastID + 1, 'nom': 'Joan', 'email': 'joan@example.com', 'telefon': '888999000' },
+        { 'id': lastID + 2, 'nom': 'Laura', 'email': 'laura@example.com', 'telefon': '111222333' }
+    ];
+    storage.push(...defaultContacts);
     localStorage.setItem('contactes', JSON.stringify(storage));
+    window.location.reload();
 }
 
 //
@@ -59,9 +65,9 @@ async function createObjects() {
     showObjects(...contacts);
 }
 
-if (location.pathname == '/projecte/1') {
-    createObjects()
-}
+window.addEventListener('DOMContentLoaded', () => {
+    createObjects();
+})
 
 //
 // MOSTRAR DETALLS

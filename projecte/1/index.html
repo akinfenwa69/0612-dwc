@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="/styles/globals.css">
-    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -79,7 +78,7 @@
         <div class="relative p-10 grid gap-5 bg-[var(--card)] rounded-xl border border-[var(--primary)]/20">
             <span
                 class="material-symbols-outlined absolute transition cursor-pointer hover:bg-[var(--accent)] rounded-full p-2 left-6 top-6"
-                onclick="createDefautl()">rotate_auto</span>
+                onclick="createDefault()">rotate_auto</span>
             <span
                 class="material-symbols-outlined absolute transition cursor-pointer hover:bg-[var(--accent)] rounded-full p-2 right-6 top-6"
                 onclick="resetStorage()">replay</span>
@@ -98,9 +97,7 @@
                             <th class="p-3 border border-[var(--primary)]/50">Detalls</th>
                         </tr>
                     </thead>
-                    <tbody id="tbody">
-                        <script src="script.js"></script>
-                    </tbody>
+                    <tbody id="tbody"></tbody>
                 </table>
             </div>
 
