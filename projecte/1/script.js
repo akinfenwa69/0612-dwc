@@ -12,13 +12,15 @@ function checkStorage() {
     if (!localStorage.getItem('contactes')) {
         fetch('/api/contacts.json')
             .then(res => res.json())
-            .then(data => localStorage.setItem('contactes', JSON.stringify(data)))
+            .then(data => {
+                localStorage.setItem('contactes', JSON.stringify(data));
+                console.log('contactes storage:', data);
+            })
             .catch(error => console.error('ERROR:', error));
+    } else {
+        console.log('contactes storage:', JSON.parse(localStorage.getItem('contactes')));
     }
-    console.log('contactes storage:', JSON.parse(localStorage.getItem('contactes')));
 }
-
-checkStorage();
 
 function resetStorage() {
     localStorage.removeItem('contactes');
