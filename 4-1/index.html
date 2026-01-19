@@ -6,134 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="/styles/globals.css">
-    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>EX4-1</title>
+    <title>Exercici 4-1</title>
 </head>
 
-<body onload="initTheme()" class="p-12">
+<body onload="initTheme(); onload()" class="p-12">
     <script src="/script.js"></script>
 
-    <h1 class="text-3xl font-bold my-4">Exercici 1</h1>
+    <div class="card relative rounded-xl p-10 bg-[var(--card)] border border-[var(--border)] grid gap-5">
+        <span onclick="window.location.href='/'" id="theme-icon"
+            class="material-symbols-outlined absolute left-5 top-5 p-3 hover:bg-[var(--accent)] rounded-full cursor-pointer">
+            chevron_left
+        </span>
 
-    <h2 class="text-2xl my-4">Text</h2>
+        <div class="card-header grid text-center gap-3">
+            <h1 class="text-5xl">Objectes</h1>
+            <p class="text-[var(--muted-foreground)]">Utilització de classes i prototips</p>
+        </div>
 
-    <p id="01_vocals">...</p>
-    <p id="01_mostra_text">...</p>
+        <div class="card-content grid gap-3">
+            <div class="rounded-xl bg-[var(--accent)]/30 p-5 border border-[var(--border)]">
+                <h2 class="text-3xl my-4">Exercici 1</h2>
+                <h3 class="text-2xl my-4">Text</h3>
+                <p id="01_vocals">...</p>
+                <p id="01_mostra_text">...</p>
+            </div>
 
-    <h1 class="text-3xl font-bold my-4">Exercici 2</h1>
+            <div class="rounded-xl bg-[var(--accent)]/30 p-5 border border-[var(--border)]">
+                <h2 class="text-3xl my-4">Exercici 2</h2>
+                <h3 class="text-2xl my-4">Figura</h3>
+                <p id="02_01_mostra_info">...</p>
+                <h3 class="text-2xl my-4">Quadrat</h3>
+                <p id="02_02_mostra_info">...</p>
+                <h3 class="text-2xl my-4">Rectangle</h3>
+                <p id="02_03_mostra_info">...</p>
+                <h3 class="text-2xl my-4">Triangle</h3>
+                <p id="02_04_mostra_info">...</p>
+            </div>
 
-    <h2 class="text-2xl my-4">Figura</h2>
+            <div class="rounded-xl bg-[var(--accent)]/30 p-5 border border-[var(--border)]">
+                <h2 class="text-3xl my-4">Exercici 3</h2>
+                <h3 class="text-2xl my-4">Persona</h3>
+                <p id="03_01_mostra_dades">...</p>
+                <h3 class="text-2xl my-4">Professor</h3>
+                <p id="03_02_mostra_dades">...</p>
+                <h3 class="text-2xl my-4">Professor Fixe</h3>
+                <p id="03_03_mostra_dades">...</p>
+                <h3 class="text-2xl my-4">Professor Interí</h3>
+                <p id="03_04_mostra_dades">...</p>
+                <h3 class="text-2xl my-4">Llista Professors</h3>
+                <p id="03_05_obtenir_profe">...</p>
+                <h3 class="text-2xl my-4">Llista</h3>
+                <ul id="03_05_mostra_dades"></ul>
+            </div>
+        </div>
 
-    <p id="02_01_mostra_info">...</p>
+        <div class="card-footer grid gap-3">
 
-    <h2 class="text-2xl my-4">Quadrat</h2>
-
-    <p id="02_02_mostra_info">...</p>
-
-    <h2 class="text-2xl my-4">Rectangle</h2>
-
-    <p id="02_03_mostra_info">...</p>
-
-    <h2 class="text-2xl my-4">Triangle</h2>
-
-    <p id="02_04_mostra_info">...</p>
-
-    <h1 class="text-3xl my-4">Exercici 3</h1>
-
-    <h2 class="text-2xl my-4">Persona</h2>
-
-    <p id="03_01_mostra_dades">...</p>
-
-    <h2 class="text-2xl my-4">Professor</h2>
-
-    <p id="03_02_mostra_dades">...</p>
-
-    <h2 class="text-2xl my-4">Professor Fixe</h2>
-
-    <p id="03_03_mostra_dades">...</p>
-
-    <h2 class="text-2xl my-4">Professor Interí</h2>
-
-    <p id="03_04_mostra_dades">...</p>
-
-    <h2 class="text-2xl my-4">Llista Professors</h2>
-
-    <p id="03_05_obtenir_profe">...</p>
-    <br>
-    <p>Llista:</p>
-    <ul id="03_05_mostra_dades"></ul>
-
-    <script src="script.js"></script>
-    <script>
-        // Exercici 1
-        const myText = new TEXT('text');
-
-        const vocals = document.getElementById('01_vocals');
-        const mostra_text = document.getElementById('01_mostra_text');
-
-        vocals.innerHTML = 'Vocals: ' + myText.countVocals();
-        myText.addChar('area');
-        mostra_text.innerHTML = myText.mostraText();
-
-        // Exercici 2
-        const myFigura = new Figura('Red');
-        const myQuadrat = new Quadrat('Red', 4);
-        const myRectangle = new Rectangle('Red', 4, 6);
-        const myTriangle = new Triangle('Red', 6, 3);
-
-        const figura = document.getElementById('02_01_mostra_info');
-        const quadrat = document.getElementById('02_02_mostra_info');
-        const rectangle = document.getElementById('02_03_mostra_info');
-        const triangle = document.getElementById('02_04_mostra_info');
-
-        figura.innerHTML = myFigura.mostraInfo();
-        quadrat.innerHTML = myQuadrat.mostraInfo();
-        rectangle.innerHTML = myRectangle.mostraInfo();
-        triangle.innerHTML = myTriangle.mostraInfo();
-
-        // Exercici 3
-        // https://www.name-generator.org.uk/quick/
-        const myPersona = new Persona('Sfwan', 'Murray', 43);
-        const myProfessor = new Professor('Tasnim', 'Mcneil', 52);
-        const myProfessorFixe = new ProfessorFixe(1, 'Florene', 'Khan', 38);
-        const myProfessorInteri = new ProfessorInteri('Joshua', 'Harding', 46, '2025-03-27');
-        const myListaProfe = new ListaProfe([]);
-
-        const persona = document.getElementById('03_01_mostra_dades');
-        const professor = document.getElementById('03_02_mostra_dades');
-        const professor_fixe = document.getElementById('03_03_mostra_dades');
-        const professor_interi = document.getElementById('03_04_mostra_dades');
-        const obtenir_professor = document.getElementById('03_05_obtenir_profe');
-        const llista_professors = document.getElementById('03_05_mostra_dades');
-
-        persona.innerHTML = myPersona.mostraDades();
-        professor.innerHTML = myProfessor.mostraDades();
-        professor_fixe.innerHTML = myProfessorFixe.mostraDades();
-        professor_interi.innerHTML = myProfessorInteri.mostraDades();
-
-        myListaProfe.insertarProfe(new ProfessorFixe(2, 'Adrian', 'Loggan', 63));
-        myListaProfe.insertarProfe(new ProfessorFixe(3, 'Harris', 'Bloggs', 53));
-        myListaProfe.insertarProfe(new ProfessorFixe(4, 'Zhara', 'Mcdonald', 59));
-
-        myListaProfe.insertarProfe(new ProfessorInteri('Ava', 'Gray', 47, '2024-09-08'));
-        myListaProfe.insertarProfe(new ProfessorInteri('Kaan', 'Schaefer', 40, '2024-11-30'));
-        myListaProfe.insertarProfe(new ProfessorInteri('Lily', 'Middleton', 61, '2025-06-11'));
-
-        myListaProfe.insertarProfe(new Professor('Tariq', 'Browning', 32));
-        myListaProfe.insertarProfe(new Professor('Lawrence', 'Mccullough', 29));
-        myListaProfe.insertarProfe(new Professor('Cohen', 'Duran', 35));
-
-        obtenir_professor.innerHTML = myListaProfe.obtenirProfe(5);
-        myListaProfe.mostraProfes().forEach(element => {
-            console.log(element);
-            const li = document.createElement('li');
-            li.textContent = `Nom: ${element.nom}, Cognoms: ${element.cognoms}, Edat: ${element.edat}`;
-            llista_professors.append(li);
-        });
-    </script>
+        </div>
+    </div>
 </body>
 
 </html>

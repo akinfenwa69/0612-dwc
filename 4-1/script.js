@@ -238,3 +238,71 @@ class ListaProfe {
         return this.array;
     }
 }
+
+function onload() {
+    // Exercici 1
+    const myText = new TEXT('text');
+
+    const vocals = document.getElementById('01_vocals');
+    const mostra_text = document.getElementById('01_mostra_text');
+
+    vocals.innerHTML = 'Vocals: ' + myText.countVocals();
+    myText.addChar('area');
+    mostra_text.innerHTML = myText.mostraText();
+
+    // Exercici 2
+    const myFigura = new Figura('Red');
+    const myQuadrat = new Quadrat('Red', 4);
+    const myRectangle = new Rectangle('Red', 4, 6);
+    const myTriangle = new Triangle('Red', 6, 3);
+
+    const figura = document.getElementById('02_01_mostra_info');
+    const quadrat = document.getElementById('02_02_mostra_info');
+    const rectangle = document.getElementById('02_03_mostra_info');
+    const triangle = document.getElementById('02_04_mostra_info');
+
+    figura.innerHTML = myFigura.mostraInfo();
+    quadrat.innerHTML = myQuadrat.mostraInfo();
+    rectangle.innerHTML = myRectangle.mostraInfo();
+    triangle.innerHTML = myTriangle.mostraInfo();
+
+    // Exercici 3
+    // https://www.name-generator.org.uk/quick/
+    const myPersona = new Persona('Sfwan', 'Murray', 43);
+    const myProfessor = new Professor('Tasnim', 'Mcneil', 52);
+    const myProfessorFixe = new ProfessorFixe(1, 'Florene', 'Khan', 38);
+    const myProfessorInteri = new ProfessorInteri('Joshua', 'Harding', 46, '2025-03-27');
+    const myListaProfe = new ListaProfe([]);
+
+    const persona = document.getElementById('03_01_mostra_dades');
+    const professor = document.getElementById('03_02_mostra_dades');
+    const professor_fixe = document.getElementById('03_03_mostra_dades');
+    const professor_interi = document.getElementById('03_04_mostra_dades');
+    const obtenir_professor = document.getElementById('03_05_obtenir_profe');
+    const llista_professors = document.getElementById('03_05_mostra_dades');
+
+    persona.innerHTML = myPersona.mostraDades();
+    professor.innerHTML = myProfessor.mostraDades();
+    professor_fixe.innerHTML = myProfessorFixe.mostraDades();
+    professor_interi.innerHTML = myProfessorInteri.mostraDades();
+
+    myListaProfe.insertarProfe(new ProfessorFixe(2, 'Adrian', 'Loggan', 63));
+    myListaProfe.insertarProfe(new ProfessorFixe(3, 'Harris', 'Bloggs', 53));
+    myListaProfe.insertarProfe(new ProfessorFixe(4, 'Zhara', 'Mcdonald', 59));
+
+    myListaProfe.insertarProfe(new ProfessorInteri('Ava', 'Gray', 47, '2024-09-08'));
+    myListaProfe.insertarProfe(new ProfessorInteri('Kaan', 'Schaefer', 40, '2024-11-30'));
+    myListaProfe.insertarProfe(new ProfessorInteri('Lily', 'Middleton', 61, '2025-06-11'));
+
+    myListaProfe.insertarProfe(new Professor('Tariq', 'Browning', 32));
+    myListaProfe.insertarProfe(new Professor('Lawrence', 'Mccullough', 29));
+    myListaProfe.insertarProfe(new Professor('Cohen', 'Duran', 35));
+
+    obtenir_professor.innerHTML = myListaProfe.obtenirProfe(5);
+    myListaProfe.mostraProfes().forEach(element => {
+        console.log(element);
+        const li = document.createElement('li');
+        li.textContent = `Nom: ${element.nom}, Cognoms: ${element.cognoms}, Edat: ${element.edat}`;
+        llista_professors.append(li);
+    });
+}

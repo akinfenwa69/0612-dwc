@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="/styles/globals.css">
-    <script src="script.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Exercici 4-2</title>
+    <title>Projectes</title>
 </head>
 
 <body onload="initTheme()" class="p-5">
@@ -21,13 +20,23 @@
             chevron_left
         </span>
 
-        <div class="card-header grid text-center gap-3">
-            <h1 class="text-5xl">Objectes JSON</h1>
-            <p class="text-[var(--muted-foreground)]">Creació i visualització d'objectes</p>
+        <div class="card-header gap-3">
+            <div class="grid gap-3 text-center">
+                <h1 class="text-5xl">Projectes</h1>
+                <p class="text-[var(--muted-foreground)]">Colecció de projectes fets</p>
+            </div>
         </div>
 
         <div class="card-content grid gap-3">
-            <main id="main" class="flex flex-wrap gap-3 justify-center"></main>
+            <div class="grid grid-cols-2 xl:grid-cols-4 gap-3">
+                <script>
+                    const sites = [
+                        { title: 'Projecte 1', subtitle: 'Agenda Contactes', url: '/projectes/1' },
+                    ]
+
+                    document.write(sites.map(site => `<a href="${site.url}" class='h-20 flex items-center justify-center rounded-xl bg-[var(--accent)]/70 hover:bg-[var(--accent)] flex-col gap-1 border border-[var(--border)]'><p class='text-lg'>${site.title}</p><p class='text-sm text-[var(--muted-foreground)]'>${site.subtitle}</p></a>`).join(''))
+                </script>
+            </div>
         </div>
 
         <div class="card-footer grid gap-3"></div>

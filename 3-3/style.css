@@ -8,14 +8,6 @@
     --success: #7ed321;
 }
 
-body {
-    background-color: var(--bg);
-    color: var(--fg);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 /* FORM STYLES */
 
 .parent {
@@ -121,8 +113,4 @@ textarea {
         outline: none;
         border-color: var(--fg);
     }
-}
-
-.esborrarValors:hover {
-    background-color: oklch(63.7% 0.237 25.331 / .2);
 }

@@ -14,9 +14,14 @@
 
 <body onload="initTheme()" class="p-5">
     <script src="/script.js"></script>
-    <div class="card rounded-xl p-10 bg-[var(--card)] border border-[var(--border)] grid gap-5">
+    <div class="card relative rounded-xl p-10 bg-[var(--card)] border border-[var(--border)] grid gap-5">
+        <span onclick="window.location.href='/'"
+            class="material-symbols-outlined absolute left-5 top-5 p-3 hover:bg-[var(--accent)] rounded-full cursor-pointer">
+            chevron_left
+        </span>
+
         <div class="card-header grid text-center gap-3">
-            <h1 class="text-5xl">Exercici 2</h1>
+            <h1 class="text-5xl">Bucles</h1>
             <p class="text-[var(--muted-foreground)]">Càlcul de lletra DNI i diumenge de Pasqua</p>
         </div>
 
