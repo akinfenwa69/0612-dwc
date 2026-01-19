@@ -17,32 +17,47 @@
     <script src="/script.js"></script>
 
     <!-- Exercici 4: Crea una pàgina amb tres botons -->
+    <div class="card rounded-xl p-10 bg-[var(--card)] border border-[var(--border)] grid gap-5">
+        <div class="card-header grid text-center gap-3">
+            <h1 class="text-5xl">Finestra</h1>
+            <p class="text-[var(--muted-foreground)]">Subtitle</p>
+        </div>
 
-    <h1 class="text-3xl font-bold mb-3">FINESTRA</h1>
+        <div class="card-content grid gap-3">
+            <div class="flex gap-2 flex-wrap mb-3">
+                <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer"
+                    onclick="handleWindow()">
+                    Obrir finestra</button>
+                <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer"
+                    onclick="handleLeft()">
+                    Moure esquerra</button>
+                <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer"
+                    onclick="handleRight()">
+                    Moure dreta</button>
+                <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer"
+                    onclick="handleLocalWindow()">
+                    Obrir finestra local</button>
 
-    <div class="flex gap-2 flex-wrap mb-3">
-        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleWindow()">
-            Obrir finestra</button>
-        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleLeft()">
-            Moure esquerra</button>
-        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleRight()">
-            Moure dreta</button>
-        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleLocalWindow()">
-            Obrir finestra local</button>
+                <!-- Exercici 1: Modifica ex02 per a que la finestra es modifiqui i tingui 50 pixels més tant d’amplada com d’alçada. I la seva posició es mogui 50 pixels a la dreta i 50 pixels cap baix. (Usa les funcions moveBy() i resizeBy() ) -->
 
-        <!-- Exercici 1: Modifica ex02 per a que la finestra es modifiqui i tingui 50 pixels més tant d’amplada com d’alçada. I la seva posició es mogui 50 pixels a la dreta i 50 pixels cap baix. (Usa les funcions moveBy() i resizeBy() ) -->
+                <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer"
+                    onclick="handleModWindow()">
+                    Modificar finestra</button>
+            </div>
 
-        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleModWindow()">
-            Modificar finestra</button>
-    </div>
+            <!-- Exercici 2: Modifica ex04 per tal que apareguin dos botons, un que permet esborrar l’interval i un altre que permet crear-lo de nou. -->
 
-    <!-- Exercici 2: Modifica ex04 per tal que apareguin dos botons, un que permet esborrar l’interval i un altre que permet crear-lo de nou. -->
+            <div>
+                <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer"
+                    onclick="handleAddInterval()">
+                    Crear interval</button>
+                <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer"
+                    onclick="handleRemoveInterval()">
+                    Esborrar interval</button>
+            </div>
+        </div>
 
-    <div>
-        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleAddInterval()">
-            Crear interval</button>
-        <button class="px-5 py-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] cursor-pointer" onclick="handleRemoveInterval()">
-            Esborrar interval</button>
+        <div class="card-footer grid gap-3"></div>
     </div>
 
     <script>

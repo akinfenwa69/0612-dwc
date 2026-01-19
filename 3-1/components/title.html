@@ -15,11 +15,22 @@
 
 <body onload="initTheme()">
     <script src="/script.js"></script>
-    <!-- Exercici 6: Crea una pàgina web amb un títol (tag html H1) que es mogui a la forma de banner: a intervals regulars es desplacen cap a l'esquerra tots els caràcters i els caràcters que desapareixen per l'esquerra tornen a aparèixer per la dreta. -->
-    <div id="block">
-        <h1 id="title1">Exercici 6</h1>
-    </div>
 
+    <!-- Exercici 6: Crea una pàgina web amb un títol (tag html H1) que es mogui a la forma de banner: a intervals regulars es desplacen cap a l'esquerra tots els caràcters i els caràcters que desapareixen per l'esquerra tornen a aparèixer per la dreta. -->
+    <div class="card rounded-xl p-10 bg-[var(--card)] border border-[var(--border)] grid gap-5">
+        <div class="card-header grid text-center gap-3">
+            <h1 class="text-5xl">Títol</h1>
+            <p class="text-[var(--muted-foreground)]">Moure text com un <i>carousel</i></p>
+        </div>
+        
+        <div class="card-content grid gap-3">
+            <div id="block" class="bg-red-600 w-fit">
+                <h1 id="title">Exercici 6</h1>
+            </div>
+        </div>
+
+        <div class="card-footer grid gap-3"></div>
+    </div>
 </body>
 
 </html>

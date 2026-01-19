@@ -13,22 +13,67 @@
     <title>Exercici 3-1</title>
 </head>
 
-<body onload="initTheme()">
+<body onload="initTheme()" class="flex">
     <script src="/script.js"></script>
-    <nav class="bg-[var(--sidebar)] text-[var(--sidebar-foreground)] flex items-center gap-3 h-20 px-3">
-        <img src="/images/vib-logo.png" alt="logo" class="h-12">
-        <ul class="flex h-full">
-            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-[var(--sidebar-accent)]"
-                onclick="iframeChange('pop-up')">Finestra</li>
-            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-[var(--sidebar-accent)]"
-                onclick="iframeChange('title')">Títol</li>
-            <li class="flex justify-center items-center h-full p-4 cursor-pointer text-lg hover:bg-[var(--sidebar-accent)]"
-                onclick="iframeChange('text')">Text de colors</li>
-        </ul>
+
+    <nav class="h-screen w-80 bg-[var(--sidebar)] text-[var(--sidebar-foreground)] flex flex-col justify-between p-2">
+        <div class="grid gap-3">
+            <a href="/"
+                class="relative transition bg-[var(--sidebar-accent)] hover:bg-[var(--primary)]/20 py-3 px-5 cursor-pointer rounded-lg flex gap-2 items-center">
+                <svg aria-label="Vercel Logo" fill="var(--foreground)" viewBox="0 0 75 65" height="48" width="48"
+                    class="bg-[var(--background)] border border-[var(--border)] p-3 rounded-lg">
+                    <path d="M37.59.25l36.95 64H.64l36.95-64z"></path>
+                </svg>
+                <div>
+                    <p>Exercicis</p>
+                    <p class="text-xs">Host Vercel</p>
+                </div>
+                <span class="material-symbols-outlined absolute right-4">unfold_more</span>
+            </a>
+            <div class="p-2 grid gap-2">
+                <p class="text-sm text-[var(--sidebar-foreground)]/50">General</p>
+                <ul>
+                    <li onclick="iframeChange('pop-up')"
+                        class="relative flex items-center gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded">
+                        <span class="material-symbols-outlined">ad</span>
+                        <p>Finestra</p>
+                    </li>
+                    <li onclick="iframeChange('title')"
+                        class="relative flex items-center gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded">
+                        <span class="material-symbols-outlined">title</span>
+                        <p>Títol</p>
+                    </li>
+                    <li onclick="iframeChange('text')"
+                        class="relative flex items-center gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded">
+                        <span class="material-symbols-outlined">format_color_text</span>
+                        <p>Text de colors</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid gap-3">
+            <div class="p-2 grid gap-2">
+                <p class="text-sm text-[var(--sidebar-foreground)]/50">Configuració</p>
+                <ul>
+                    <li onclick="toggleTheme()"
+                        class="flex gap-2 cursor-pointer items-center transition hover:bg-[var(--sidebar-accent)] p-2 rounded select-none">
+                        <span id="theme-icon" class="material-symbols-outlined">bedtime</span>
+                        <p id="theme-text">Dark Mode</p>
+                    </li>
+                </ul>
+            </div>
+            <div
+                class="relative transition bg-[var(--sidebar-accent)] hover:bg-[var(--primary)]/20 cursor-pointer py-3 px-5 rounded-lg flex gap-2 items-center">
+                <div class="h-8 w-8 flex items-center justify-center">
+                    <img src="/images/vib-logo.png" alt="logo">
+                </div>
+                <p>Pol Poblet Pallisé</p>
+            </div>
+        </div>
     </nav>
 
-    <main class="p-16" style="height: calc(100dvh - 80px);">
-        <iframe id="iframe" class="w-full h-full" src='./components/pop-up.html' frameborder="0"></iframe>
+    <main class="p-5 flex-1" style="height: calc(100dvh - 80px);">
+        <iframe id="iframe" class="w-full h-full" src='components/pop-up.html' frameborder="0"></iframe>
     </main>
 
     <script>

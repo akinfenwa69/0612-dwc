@@ -101,8 +101,7 @@ function showObjects(...objects) {
     const main = document.getElementById('main');
     objects.map(item => {
         const div = document.createElement('div')
-        div.className = 'transition bg-[#3a3a3a] hover:bg-[#333] p-4 rounded-xl aspect-square w-fit cursor-pointer'
-        div.style.minWidth = '200px'
+        div.className = 'transition bg-[var(--accent)]/50 border border-[var(--border)] p-4 rounded-xl aspect-square w-fit cursor-pointer min-w-50'
         if (item instanceof Personatge) {
             div.innerHTML =
                 `<h2 class="text-xl font-bold mb-3">Personatge</h2>
