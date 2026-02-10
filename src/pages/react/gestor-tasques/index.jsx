@@ -23,24 +23,8 @@ function App() {
   }
 
   return (
-    <div className='bg-white/30 w-screen h-screen'>
-      <nav className='fixed p-5 w-full top-0 flex justify-between items-center'>
-        <span className='text-xl'>Gestor Tasques</span>
-        <div className='flex items-center'>
-          <a href="#create-task"
-            className='text-muted-foreground! hover:text-foreground! rounded-full px-3 py-2 hover:bg-sidebar-accent/50 transition'
-          >
-            Create Task
-          </a>
-          <a href="#task-list"
-            className='text-muted-foreground! hover:text-foreground! rounded-full px-3 py-2 hover:bg-sidebar-accent/50 transition'
-          >
-            Task List
-          </a>
-        </div>
-      </nav>
-
-      <header className='h-screen flex flex-col items-center justify-center gap-5'>
+    <div>
+      <header className='flex flex-col items-center justify-center gap-5'>
         <h1>Gestor de Tasques</h1>
         <p className='text-muted-foreground'>Crea tasques i controla l'estat d'aquestes</p>
         <a href='#create-task'
@@ -100,7 +84,7 @@ function App() {
         </section>
       </main>
 
-      <footer className='w-full p-5 bg-card flex justify-center'>
+      <footer className='w-full p-5 flex justify-center'>
         <span className='text-sm text-muted-foreground'>Gestor de Tasques &copy; Pol Poblet Pallisé</span>
       </footer>
     </div>

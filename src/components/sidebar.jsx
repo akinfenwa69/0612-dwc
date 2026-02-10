@@ -28,7 +28,7 @@ export default function Sidebar() {
     }
 
     return (
-        <nav className="w-80 bg-red-500/50">
+        <nav className="w-80 p-10 bg-red-500">
             <div className="sidebar-header">
                 header
             </div>

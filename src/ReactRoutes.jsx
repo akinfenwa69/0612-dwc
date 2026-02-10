@@ -17,6 +17,9 @@ import LlistaContactes from './pages/javascript/llista-contactes'
 import React from './pages/react'
 import GestorTasques from './pages/react/gestor-tasques'
 
+// other
+import Settings from './pages/settings'
+
 export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
@@ -37,6 +40,9 @@ export const router = createBrowserRouter(
             {/* REACT */}
             <Route path="/react" element={<React />} />
             <Route path="/react/gestor-tasques" element={<GestorTasques />} />
+
+            {/* OTHER */}
+            <Route path="/settings" element={<Settings />} />
         </Route>
     )
 )
