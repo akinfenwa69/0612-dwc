@@ -24,11 +24,6 @@ const data = {
   },
   navMain: [
     {
-      title: "Home",
-      url: "/",
-      icon: Home,
-    },
-    {
       title: "JavaScript",
       url: "/javascript",
       icon: IoLogoJavascript,
@@ -68,12 +63,9 @@ export function AppSidebar({ ...props }) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              asChild
-              className="data-[slot=sidebar-menu-button]:!p-1.5"
-            >
-              <a href="/">
-                <Loader className="!size-5" />
+            <SidebarMenuButton asChild>
+              <a href="/" className="px-4 py-7 border">
+                <Loader className="size-5!" />
                 <span className="text-base font-semibold">0612 ~ DWC</span>
               </a>
             </SidebarMenuButton>

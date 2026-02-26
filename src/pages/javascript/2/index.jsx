@@ -36,44 +36,44 @@ export default function JavascriptEx2() {
     }
 
     return (
-        <div class="grid gap-5">
+        <div className="grid gap-5">
             <a href="/javascript"
-                class="absolute left-5 top-5 p-3 hover:bg-accent rounded-full">
+                className="absolute left-5 top-5 p-3 hover:bg-accent rounded-full">
                 <ChevronLeft />
             </a>
 
-            <div class="card-header grid text-center gap-3">
-                <h1 class="text-5xl">Bucles</h1>
-                <p class="text-muted-foreground">Càlcul de lletra DNI i diumenge de Pasqua</p>
+            <div className="card-header grid text-center gap-3">
+                <h1 className="text-5xl">Bucles</h1>
+                <p className="text-muted-foreground">Càlcul de lletra DNI i diumenge de Pasqua</p>
             </div>
 
-            <div class="grid gap-5">
-                <div class="flex flex-col gap-3">
-                    <div class="grid gap-2">
-                        <h2 class="text-2xl">Calcular lletra DNI</h2>
+            <div className="grid gap-5">
+                <div className="flex flex-col gap-3">
+                    <div className="grid gap-2">
+                        <h2 className="text-2xl">Calcular lletra DNI</h2>
                         <input type="number" name="dni" id="dni" placeholder="Afegeix el número del DNI..."
                             value={dni}
                             onInput={(e) => setDNI(e.target.value)}
-                            class="border border-border rounded-lg focus:outline-none focus:border-foreground p-3" />
+                            className="border border-border rounded-lg focus:outline-none focus:border-foreground p-3" />
                     </div>
 
                     <button onClick={calcDNI}
-                        class="p-3 border border-border rounded-xl bg-(--accent)/70 hover:bg-accent cursor-pointer">
+                        className="p-3 border border-border rounded-xl bg-(--accent)/70 hover:bg-accent cursor-pointer">
                         Calcular
                     </button>
                 </div>
 
-                <div class="flex flex-col gap-3">
-                    <div class="grid gap-2">
-                        <h2 class="text-2xl">Calcular diumenge de Pasqua</h2>
+                <div className="flex flex-col gap-3">
+                    <div className="grid gap-2">
+                        <h2 className="text-2xl">Calcular diumenge de Pasqua</h2>
                         <input type="number" name="any" id="any" placeholder="Introdueix l'any..."
                             value={any}
                             onInput={(e) => setAny(e.target.value)}
-                            class="border border-border rounded-lg focus:outline-none focus:border-foreground p-3" />
+                            className="border border-border rounded-lg focus:outline-none focus:border-foreground p-3" />
                     </div>
 
                     <button onClick={calcDiumenge}
-                        class="p-3 border border-border rounded-xl bg-(--accent)/70 hover:bg-accent cursor-pointer">
+                        className="p-3 border border-border rounded-xl bg-(--accent)/70 hover:bg-accent cursor-pointer">
                         Calcular
                     </button>
                 </div>

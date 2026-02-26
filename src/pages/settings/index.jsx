@@ -1,5 +1,8 @@
 export default function Settings() {
     return (
-        <span>Settings</span>
+        <div>
+            <h1 className="text-4xl font-medium mb-4">Settings</h1>
+            <p>...</p>
+        </div>
     )
 }

@@ -35,6 +35,8 @@ export const router = createBrowserRouter(
             <Route path="/javascript/4-1" element={<JavascriptEx4_1 />} />
             <Route path="/javascript/4-2" element={<JavascriptEx4_2 />} />
             <Route path="/javascript/llista-contactes" element={<LlistaContactes />} />
+            <Route path="/javascript/llista-contactes/detall" element={<LlistaContactes />} />
+            <Route path="/javascript/llista-contactes/new" element={<LlistaContactes />} />
 
 
             {/* REACT */}

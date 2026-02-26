@@ -67,43 +67,55 @@ export default function JavascriptEx3_2() {
     }, [])
 
     return (
-        <div class="grid gap-5">
+        <div className="grid gap-5">
             <a href="/javascript"
-                class="absolute left-5 top-5 p-3 hover:bg-accent rounded-full cursor-pointer">
+                className="absolute left-5 top-5 p-3 hover:bg-accent rounded-full cursor-pointer">
                 <ChevronLeft />
             </a>
 
-            <div class="card-header grid text-center gap-3">
-                <h1 class="text-5xl">{title}</h1>
-                <p class="text-muted-foreground">{lastVisit}</p>
+            <div className="card-header grid text-center gap-3">
+                <h1 className="text-5xl">{title}</h1>
+                <p className="text-muted-foreground">{lastVisit}</p>
             </div>
-            <form class="grid gap-3" onSubmit={() => createCookie()}>
-                <label for="name">Nom</label>
-                <input placeholder="Nom..." type="text" id="name" name="name"
+            <form className="grid gap-3" onSubmit={() => createCookie()}>
+                <label htmlFor="name">Nom</label>
+                <input
+                    placeholder="Nom..."
+                    type="text"
+                    id="name"
+                    name="name"
                     required
-                    value={nom}
+                    defaultValue={nom}
                     onInput={(e) => setNom(e.target.value)}
-                    class="p-2 rounded border border-gray-500 focus:border-foreground outline-none" />
+                    className="p-2 rounded border border-gray-500 focus:border-foreground outline-none" />
 
-                <label for="surname">Cognom</label>
-                <input placeholder="Cognom..." type="text" id="surname" name="surname"
+                <label htmlFor="surname">Cognom</label>
+                <input
+                    placeholder="Cognom..."
+                    type="text"
+                    id="surname"
+                    name="surname"
                     required
-                    value={cognom}
+                    defaultValue={cognom}
                     onInput={(e) => setCognom(e.target.value)}
-                    class="p-2 rounded border border-gray-500 focus:border-foreground outline-none" />
+                    className="p-2 rounded border border-gray-500 focus:border-foreground outline-none" />
 
-                <label for="bg-color">Color de fons</label>
-                <select title="bg-color" name="bg-color" id="bg_color"
-                    class="p-2 rounded border border-gray-500 focus:border-foreground cursor-pointer"
+                <label htmlFor="bg-color">Color de fons</label>
+                <select
+                    title="bg-color"
+                    name="bg-color"
+                    id="bg_color"
+                    className="p-2 rounded border border-gray-500 focus:border-foreground cursor-pointer"
+                    defaultValue={""}
                     onChange={(e) => setColor(e.target.value)}
                 >
-                    <option value="" selected>-- Default --</option>
+                    <option value="">-- Default --</option>
                     <option value="#0000ff22">Blau</option>
                     <option value="#00ff0022">Verd</option>
                     <option value="#ff000022">Vermell</option>
                 </select>
 
-                <button type="submit" class="bg-card p-3 text-lg cursor-pointer rounded-lg border border-border hover:bg-accent">Enviar</button>
+                <button type="submit" className="bg-card p-3 text-lg cursor-pointer rounded-lg border border-border hover:bg-accent">Enviar</button>
             </form>
         </div>
     )

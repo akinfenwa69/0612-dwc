@@ -118,96 +118,101 @@ export default function JavascriptEx3_3() {
     }
 
     return (
-        <div id="ex3-3" class="grid gap-5">
+        <div id="ex3-3" className="grid gap-5">
             <a href="/javascript"
-                class="absolute left-5 top-5 p-3 z-50 hover:bg-accent rounded-full cursor-pointer">
+                className="absolute left-5 top-5 p-3 z-50 hover:bg-accent rounded-full cursor-pointer">
                 <ChevronLeft className="back-icon" />
             </a>
 
-            <div class="grid text-center gap-3">
-                <h1 class="text-5xl">Formularis</h1>
-                <p class="text-muted-foreground">Verificar les dades de cada camp</p>
+            <div className="grid text-center gap-3">
+                <h1 className="text-5xl">Formularis</h1>
+                <p className="text-muted-foreground">Verificar les dades de cada camp</p>
             </div>
 
-            <div class="grid gap-3">
-                <form action="" id="myForm" onsubmit={() => validarFormulari()}>
-                    <div class="flex flex-col xl:grid grid-cols-2 gap-3">
+            <div className="grid gap-3">
+                <form action="" id="myForm" onSubmit={() => validarFormulari()}>
+                    <div className="flex flex-col xl:grid grid-cols-2 gap-3">
                         <section>
-                            <h1 class="text-xl font-bold my-5">Exercici 1</h1>
-                            <div class="floating-label">
-                                <input type="text" name="nom" id="nom" placeholder="" class="border p-2" />
-                                <label for="nom">Nom</label>
+                            <h1 className="text-xl font-bold my-5">Exercici 1</h1>
+                            <div className="floating-label">
+                                <input type="text" name="nom" id="nom" placeholder="" className="border p-2" />
+                                <label htmlFor="nom">Nom</label>
                                 <User />
-                                <span class="error text-sm" id="err_nom"></span>
+                                <span className="error text-sm" id="err_nom"></span>
                             </div>
-                            <div class="floating-label">
-                                <input type="email" name="email" id="email" placeholder="" class="border p-2" />
-                                <label for="email">Correu electrònic</label>
+                            <div className="floating-label">
+                                <input type="email" name="email" id="email" placeholder="" className="border p-2" />
+                                <label htmlFor="email">Correu electrònic</label>
                                 <Mail />
-                                <span class="error text-sm" id="err_email"></span>
+                                <span className="error text-sm" id="err_email"></span>
                             </div>
-                            <div class="floating-label">
-                                <input type="tel" name="telefon" id="telefon" placeholder="" class="border p-2" />
-                                <label for="telefon">Telèfon</label>
+                            <div className="floating-label">
+                                <input type="tel" name="telefon" id="telefon" placeholder="" className="border p-2" />
+                                <label htmlFor="telefon">Telèfon</label>
                                 <Phone />
-                                <span class="error text-sm" id="err_telefon"></span>
+                                <span className="error text-sm" id="err_telefon"></span>
                             </div>
-                            <div class="mt-6 flex flex-col gap-3">
-                                <label for="missatge" class="flex gap-2 text-muted-foreground"><MessageSquareText />Missatge</label>
+                            <div className="mt-6 flex flex-col gap-3">
+                                <label htmlFor="missatge" className="flex gap-2 text-muted-foreground"><MessageSquareText />Missatge</label>
                                 <textarea name="missatge" id="missatge" placeholder="Escriu un missatge..."
-                                    class="p-3 w-full"></textarea>
-                                <span class="error text-sm" id="err_missatge"></span>
+                                    className="p-3 w-full"></textarea>
+                                <span className="error text-sm" id="err_missatge"></span>
                             </div>
                         </section>
 
                         <section>
-                            <h1 class="text-xl my-5 font-bold">Exercici 2</h1>
-                            <div class="floating-label">
+                            <h1 className="text-xl my-5 font-bold">Exercici 2</h1>
+                            <div className="floating-label">
                                 <input type="number" name="num-enters" id="num-enters" placeholder="" />
-                                <label for="num-enters">Nombre enter</label>
+                                <label htmlFor="num-enters">Nombre enter</label>
                                 <Hash />
-                                <span class="error text-sm" id="err_num_enters"></span>
+                                <span className="error text-sm" id="err_num_enters"></span>
                             </div>
-                            <div class="floating-label">
+                            <div className="floating-label">
                                 <input type="text" name="num-decimals" id="num-decimals" placeholder="" />
-                                <label for="num-decimals">Nombre decimal</label>
+                                <label htmlFor="num-decimals">Nombre decimal</label>
                                 <DecimalsArrowRight />
-                                <span class="error text-sm" id="err_num_decimals"></span>
+                                <span className="error text-sm" id="err_num_decimals"></span>
                             </div>
-                            <div class="floating-label">
+                            <div className="floating-label">
                                 <input type="number" name="cp" id="cp" placeholder="" />
-                                <label for="cp">Codi postal</label>
+                                <label htmlFor="cp">Codi postal</label>
                                 <MapPin />
-                                <span class="error text-sm" id="err_cp"></span>
+                                <span className="error text-sm" id="err_cp"></span>
                             </div>
-                            <div class="mt-6 flex flex-col gap-2">
-                                <label for="data-naixement" class="flex gap-2 text-muted-foreground">
+                            <div className="mt-6 flex flex-col gap-2">
+                                <label htmlFor="data-naixement" className="flex gap-2 text-muted-foreground">
                                     <Cake />Data naixement
                                 </label>
-                                <input type="date" name="data-naixement" id="data-naixement" class="border p-2" />
-                                <span class="error text-sm" id="err_data_naixament"></span>
+                                <input type="date" name="data-naixement" id="data-naixement" className="border p-2" />
+                                <span className="error text-sm" id="err_data_naixament"></span>
                             </div>
-                            <div class="mt-6 flex flex-col gap-2">
-                                <label for="data-inici" class="flex gap-2 text-muted-foreground">
+                            <div className="mt-6 flex flex-col gap-2">
+                                <label htmlFor="data-inici" className="flex gap-2 text-muted-foreground">
                                     <CalendarCheck />Data inici
                                 </label>
-                                <input type="date" name="data-inici" id="data-inici" class="border p-2" />
-                                <span class="error text-sm" id="err_data_inici"></span>
+                                <input type="date" name="data-inici" id="data-inici" className="border p-2" />
+                                <span className="error text-sm" id="err_data_inici"></span>
                             </div>
-                            <div class="mt-6 flex flex-col gap-2">
-                                <label for="data-final" class="flex gap-2 text-muted-foreground">
+                            <div className="mt-6 flex flex-col gap-2">
+                                <label htmlFor="data-final" className="flex gap-2 text-muted-foreground">
                                     <CalendarX />Data final
                                 </label>
-                                <input type="date" name="data-final" id="data-final" class="border p-2" />
-                                <span class="error text-sm" id="err_data_final"></span>
+                                <input type="date" name="data-final" id="data-final" className="border p-2" />
+                                <span className="error text-sm" id="err_data_final"></span>
                             </div>
                         </section>
                     </div>
 
-                    <div class="flex gap-1 mt-5 h-16 col-span-2">
-                        <button type="submit" class="flex-1 text-lg">Enviar</button>
+                    <div className="flex gap-1 mt-5 h-16 col-span-2">
+                        <button
+                            type="submit"
+                            className="flex-1 text-lg"
+                        >
+                            Enviar
+                        </button>
                         <button type="reset"
-                            class="h-16 w-16 border bg-transparent! border-red-500/70! transition hover:bg-red-500/20! text-white rounded cursor-pointer flex items-center justify-center">
+                            className="h-16 w-16 border bg-transparent! border-red-500/70! transition hover:bg-red-500/20! text-white rounded cursor-pointer flex items-center justify-center">
                             <Trash2 />
                         </button>
                     </div>

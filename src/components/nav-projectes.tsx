@@ -18,10 +18,10 @@ export function NavProjectes({ items }) {
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton asChild>
-              <a href={item.url}>
+            <SidebarMenuButton asChild className="p-0">
+              <a href={item.url} className="[&:hover_span]:translate-x-1 flex items-center gap-2 w-full h-full p-3">
                 <item.icon />
-                <span>{item.name}</span>
+                <span className="transition">{item.name}</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

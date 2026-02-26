@@ -1,7 +1,7 @@
 [
     {
         "nom": "Personatge 1",
-        "genere": "Genere 1",
+        "genere": "Male",
         "nivell": 4,
         "armes": [
             3,
@@ -9,8 +9,8 @@
         ]
     },
     {
-        "nom": "Personatge 2",
-        "genere": "Genere 2",
+        "nom": "Personatge 2 Personatge 2",
+        "genere": "Female",
         "nivell": 2,
         "armes": [
             2
