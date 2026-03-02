@@ -12,6 +12,7 @@ import JavascriptEx3_3 from './pages/javascript/3-3'
 import JavascriptEx4_1 from './pages/javascript/4-1'
 import JavascriptEx4_2 from './pages/javascript/4-2'
 import LlistaContactes from './pages/javascript/llista-contactes'
+import NewContacte from './pages/javascript/llista-contactes/new'
 
 // react
 import React from './pages/react'
@@ -19,6 +20,7 @@ import GestorTasques from './pages/react/gestor-tasques'
 
 // other
 import Settings from './pages/settings'
+import DetailsContacte from './pages/javascript/llista-contactes/[detall]'
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -34,9 +36,10 @@ export const router = createBrowserRouter(
             <Route path="/javascript/3-3" element={<JavascriptEx3_3 />} />
             <Route path="/javascript/4-1" element={<JavascriptEx4_1 />} />
             <Route path="/javascript/4-2" element={<JavascriptEx4_2 />} />
+            
             <Route path="/javascript/llista-contactes" element={<LlistaContactes />} />
-            <Route path="/javascript/llista-contactes/detall" element={<LlistaContactes />} />
-            <Route path="/javascript/llista-contactes/new" element={<LlistaContactes />} />
+            <Route path="/javascript/llista-contactes/:slug" element={<DetailsContacte />} />
+            <Route path="/javascript/llista-contactes/new" element={<NewContacte />} />
 
 
             {/* REACT */}

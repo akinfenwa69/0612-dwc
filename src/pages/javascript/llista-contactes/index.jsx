@@ -1,5 +1,6 @@
-import { Contact, Plus, RotateCcw } from "lucide-react";
-import { useState } from "react";
+import { Contact, Plus, RotateCcw, History } from "lucide-react";
+import { useEffect, useState } from "react";
+import CONTACTES from '@/api/contacts.json'
 
 export default function LlistaContactes() {
     //
@@ -14,13 +15,7 @@ export default function LlistaContactes() {
 
     useState(() => {
         if (!localStorage.getItem('contactes')) {
-            fetch('/api/contacts.json')
-                .then(res => res.json())
-                .then(data => {
-                    localStorage.setItem('contactes', JSON.stringify(data));
-                    console.log('contactes storage:', data);
-                })
-                .catch(error => console.error('ERROR:', error));
+            localStorage.setItem('contactes', JSON.stringify(CONTACTES));
         } else {
             console.log('contactes storage:', JSON.parse(localStorage.getItem('contactes')));
         }
@@ -50,30 +45,11 @@ export default function LlistaContactes() {
     // MOSTRAR LLISTA DE CONTACTES
     //
 
-    function fetchContacts() {
-        return JSON.parse(localStorage.getItem('contactes')) || fetch('/api/contacts.json').then(res => res.json());
-    }
+    const [contacts, setContacts] = useState([])
 
-    function showObjects(...objects) {
-        const myTBODY = document.getElementById('tbody');
-        objects[0].sort((a, b) => b.id - a.id).map(item => {
-            const myTD = document.createElement('tr');
-            myTD.innerHTML =
-                `<td className="p-3 border border-(--primary)/50">${item.id}</td>
-             <td className="p-3 border border-(--primary)/50">${item.nom}</td>
-             <td className="p-3 border border-(--primary)/50"><a href='/projecte/1/detall/index.html?id=${item.id}'>Detalls</a></td>`;
-            myTBODY.appendChild(myTD);
-        });
-    }
-
-    async function createObjects() {
-        const contacts = await Promise.all([fetchContacts()]);
-        showObjects(...contacts);
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-        createObjects();
-    })
+    useEffect(() => {
+        setContacts(CONTACTES)
+    }, [])
 
     //
     // MOSTRAR DETALLS
@@ -107,7 +83,7 @@ export default function LlistaContactes() {
     }
 
     async function createObjectByID(contactID) {
-        const contacts = await Promise.all([fetchContacts()]);
+        const contacts = CONTACTES
         showObjectByID(contactID, ...contacts);
     }
 
@@ -174,30 +150,25 @@ export default function LlistaContactes() {
     return (
         <>
             <div className="flex gap-2">
-                <a href="/react/llista-contactes"
+                <a href="/javascript/llista-contactes"
                     className="flex items-center gap-2 transition hover:bg-sidebar-accent p-2 rounded">
                     <Contact />
                     <p>Contactes</p>
                 </a>
-                <a href="/react/llista-contactes/new"
+                <a href="/javascript/llista-contactes/new"
                     className="flex items-center justify-center rounded-full transition hover:bg-accent p-2">
                     <Plus />
                 </a>
             </div>
 
             <main className="flex flex-1 flex-col gap-4 p-4">
-                <div className="flex gap-3 items-center h-8">
-                    <div className="flex items-center">
-                        <p className="text-foreground">Home</p>
-                    </div>
-                </div>
-                <div className="relative p-10 grid gap-5 bg-card rounded-xl border border-(--primary)/20">
+                <div className="relative grid gap-5">
                     <span
-                        className="material-symbols-outlined absolute transition cursor-pointer hover:bg-accent rounded-full p-2 left-6 top-6"
-                        onClick="createDefault()"><History /></span>
+                        className="material-symbols-outlined absolute transition cursor-pointer hover:bg-accent rounded-full p-2 left-0 top-0"
+                        onClick={() => createDefault()}><History /></span>
                     <span
-                        className="material-symbols-outlined absolute transition cursor-pointer hover:bg-accent rounded-full p-2 right-6 top-6"
-                        onClick="resetStorage()"><RotateCcw /></span>
+                        className="material-symbols-outlined absolute transition cursor-pointer hover:bg-accent rounded-full p-2 right-0 top-0"
+                        onClick={() => resetStorage()}><RotateCcw /></span>
 
                     <div className="flex flex-col gap-2 items-center justify-center">
                         <h1 className="text-3xl">Llista de Contactes</h1>
@@ -213,13 +184,23 @@ export default function LlistaContactes() {
                                     <th className="p-3 border border-(--primary)/50">Detalls</th>
                                 </tr>
                             </thead>
-                            <tbody id="tbody"></tbody>
+                            <tbody>
+                                {
+                                    contacts.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td className="p-3 border border-(--primary)/50">{item.id}</td>
+                                                <td className="p-3 border border-(--primary)/50">{item.nom}</td>
+                                                <td className="p-3 border border-(--primary)/50"><a href={`/javascript/llista-contactes/${item.id}`}>Detalls</a></td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
                         </table>
                     </div>
-
-                    <div></div>
                 </div>
-            </main>
+            </main >
         </>
     )
 }
