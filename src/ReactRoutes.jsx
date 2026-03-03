@@ -21,6 +21,7 @@ import GestorTasques from './pages/react/gestor-tasques'
 // other
 import Settings from './pages/settings'
 import DetailsContacte from './pages/javascript/llista-contactes/[detall]'
+import CatalegProductes from './pages/react/cataleg-productes'
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -45,6 +46,7 @@ export const router = createBrowserRouter(
             {/* REACT */}
             <Route path="/react" element={<React />} />
             <Route path="/react/gestor-tasques" element={<GestorTasques />} />
+            <Route path="/react/cataleg-productes" element={<CatalegProductes />} />
 
             {/* OTHER */}
             <Route path="/settings" element={<Settings />} />

@@ -6,6 +6,7 @@ import { motion } from "motion/react"
 export default function React() {
     const sites = [
         { id: '5', title: 'Gestor de Tasques', url: '/react/gestor-tasques', icon: ClipboardList },
+        { id: '6', title: 'Catàleg de Productes', url: '/react/cataleg-productes', icon: ClipboardList },
     ]
 
     return (

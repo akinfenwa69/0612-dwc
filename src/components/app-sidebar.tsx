@@ -54,6 +54,11 @@ const data = {
       url: "/react/gestor-tasques",
       icon: ClipboardList,
     },
+    {
+      name: "Catàleg de Productes",
+      url: "/react/cataleg-productes",
+      icon: ClipboardList,
+    },
   ],
 }
 
