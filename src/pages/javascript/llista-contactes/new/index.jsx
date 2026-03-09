@@ -12,7 +12,6 @@ export default function NewContacte() {
         const tel = document.getElementById('tel').value;
 
         const storage = JSON.parse(localStorage.getItem('contactes'));
-        //console.log('generated id', storage.sort((a, b) => b.id - a.id)[0].id + 1);
         const user = { 'id': storage.sort((a, b) => b.id - a.id)[0].id + 1, 'nom': name, 'email': email, 'telefon': tel };
 
         storage.push(user);

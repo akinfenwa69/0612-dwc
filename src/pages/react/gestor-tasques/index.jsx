@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from "motion/react"
 import { X } from 'lucide-react'
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 function TaskItem({ id, text, state, removeTask, toggleTask }) {
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
       onClick={() => toggleTask(id)}
-      className={`relative p-5 select-none cursor-pointer transition rounded-xl bg-accent hover:bg-card border ${state === 'Completada' ? 'border-green-500' : 'border-border'}`}
     >
-      <div onClick={(e) => { e.stopPropagation(); removeTask(id); }}
-        className="group absolute right-2 top-2 flex cursor-pointer items-center justify-center bg-red-500/10 w-8 aspect-square rounded-full border border-red-500 text-muted-foreground hover:rotate-90 transition hover:text-red-500"
+      <div
+        className={`relative p-5 select-none cursor-pointer rounded-xl transition bg-accent hover:bg-card border ${state === 'Completada' ? 'border-green-500' : 'border-border'}`}
       >
-        <X size={18} className="group-hover:rotate-90 transition group-hover:stroke-red-400" />
+        <div onClick={(e) => { e.stopPropagation(); removeTask(id); }}
+          className="group absolute right-2 top-2 flex cursor-pointer items-center justify-center bg-red-500/10 w-8 aspect-square rounded-full border border-red-500 text-muted-foreground hover:rotate-90 transition hover:text-red-500"
+        >
+          <X size={18} className="group-hover:rotate-90 transition group-hover:stroke-red-400" />
+        </div>
+        <span className="text-xs text-muted-foreground">{id}</span>
+        <p className="text-2xl mb-4 w-full truncate">{text}</p>
+        <p className="w-full truncate">{state}</p>
       </div>
-      <span className="text-xs text-muted-foreground">{id}</span>
-      <p className="text-2xl mb-4 w-full truncate">{text}</p>
-      <p className="w-full truncate">{state}</p>
-    </div>
+    </motion.div>
   )
 }
 
@@ -68,6 +75,8 @@ export default function GestorTasques() {
 
   return (
     <main className='p-10 mb-10 grid grid-cols-1 2xl:grid-cols-2 gap-5'>
+
+      {/* CREATE TASK */}
       <section className='relative flex flex-col gap-3'>
         <h2 id='create-task' className='text-3xl mb-5 text-center'>Create Task</h2>
         <div className='sticky top-6 border border-border rounded-xl p-5 flex flex-col gap-3 h-fit'>
@@ -93,57 +102,54 @@ export default function GestorTasques() {
           <button onClick={validateTask} className='p-3'>
             Create task
           </button>
-          <button onClick={() => setTaskList([])} className='py-2 px-5 mx-auto bg-transparent! hover:bg-red-500/20! transition'>
+          <button onClick={() => setTaskList([])} className='py-2 px-5 mx-auto bg-transparent! hover:bg-red-500/50! transition'>
             Remove all tasks
           </button>
         </div>
       </section>
 
+      {/* TASK LIST */}
       <section className='flex flex-col gap-5'>
-        <div className='my-5 grid grid-cols-[1fr_2fr_1fr]'>
-          <AnimatePresence initial={false}>
-            {pendingTasks !== 0 ?
-              <motion.span
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                className='w-fit h-fit px-5 py-2 rounded-full border border-border hover:scale-105 hover:bg-accent'
-              >
-                Pendents: {pendingTasks}
-              </motion.span>
-              : null
-            }
-          </AnimatePresence>
-          <div className='flex flex-col gap-2 col-start-2 col-end-3'>
+        <div className='my-5 flex flex-col items-center gap-5'>
+          <div className='relative flex flex-col gap-2 col-start-2 col-end-3 w-full'>
             <h2 id='task-list' className='text-3xl text-center'>Task List</h2>
             <p className='text-sm text-muted-foreground text-center'>Clica la tasca per canviar l'estat</p>
+
+            <AnimatePresence initial={false}>
+              {pendingTasks !== 0 ?
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  className='absolute left-0 top-0'
+                >
+                  <span
+                    className='w-fit h-fit px-5 py-2 rounded-full border border-border hover:scale-105 hover:bg-accent'
+                  >
+                    Pendents: {pendingTasks}
+                  </span>
+                </motion.div>
+                : null
+              }
+            </AnimatePresence>
           </div>
-          <div className='flex gap-2 items-center'>
-            <div className='flex gap-1 items-center'>
-              <label htmlFor='tots' className='cursor-pointer'>Tots</label>
-              <input type="radio" name="filter" id="tots" value="Tots" checked={filter === 'Tots'} onChange={(e) => setFilter(e.target.value)} className='cursor-pointer' />
-            </div>
-            <div className='flex gap-2 items-center'>
-              <div className='flex gap-1 items-center'>
-                <label htmlFor='pendents' className='cursor-pointer'>Pendents</label>
-                <input type="radio" name="filter" id="pendents" value="Pendent" checked={filter === 'Pendent'} onChange={(e) => setFilter(e.target.value)} className='cursor-pointer' />
-              </div>
-              <div className='flex gap-1 items-center'>
-                <label htmlFor='completats' className='cursor-pointer'>Completats</label>
-                <input type="radio" name="filter" id="completats" value="Completada" checked={filter === 'Completada'} onChange={(e) => setFilter(e.target.value)} className='cursor-pointer' />
-              </div>
-            </div>
-          </div>
+          <ToggleGroup type="single" variant="outline" defaultValue="Tots" onValueChange={(val) => setFilter(val ? val : filter)}>
+            <ToggleGroupItem value="Tots" className={`rounded-r-none! ${filter === 'Tots' ? 'bg-muted!' : ''}`}>Tots</ToggleGroupItem>
+            <ToggleGroupItem value="Pendent" className={`rounded-none! ${filter === 'Pendent' ? 'bg-muted!' : ''}`}>Pendents</ToggleGroupItem>
+            <ToggleGroupItem value="Completada" className={`rounded-l-none! ${filter === 'Completada' ? 'bg-muted!' : ''}`}>Completats</ToggleGroupItem>
+          </ToggleGroup>
         </div>
 
         <div className='grid grid-cols-3 gap-3'>
-          {
-            filteredTasks.length ?
-              filteredTasks.map(item =>
-                <TaskItem key={item.id} id={item.id} text={item.text} state={item.state} changeState={() => toggleTask(item.id)} removeTask={removeTask} toggleTask={toggleTask} />
-              )
-              : <p className='col-span-3 text-center text-muted-foreground'>No tasks!</p>
-          }
+          <AnimatePresence>
+            {
+              filteredTasks.length ?
+                filteredTasks.map(item =>
+                  <TaskItem key={item.id} id={item.id} text={item.text} state={item.state} changeState={() => toggleTask(item.id)} removeTask={removeTask} toggleTask={toggleTask} />
+                )
+                : <p className='col-span-3 text-center text-muted-foreground'>No tasks!</p>
+            }
+          </AnimatePresence>
         </div>
       </section>
     </main>

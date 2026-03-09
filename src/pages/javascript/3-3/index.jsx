@@ -1,5 +1,6 @@
 import { Cake, Calendar1, CalendarCheck, CalendarX, ChevronLeft, DecimalsArrowRight, Hash, Mail, MapPin, MessageSquareText, Phone, Trash2, User } from "lucide-react";
 import './style.css'
+import Manteniment from "@/components/manteniment"
 
 export default function JavascriptEx3_3() {
     // Formulari
@@ -116,6 +117,8 @@ export default function JavascriptEx3_3() {
         // Si totes les validacions passen
         return confirm("Formulari correcte! Vols enviar-lo?");
     }
+
+    if (true) return <Manteniment />
 
     return (
         <div id="ex3-3" className="grid gap-5">

@@ -21,7 +21,6 @@ export default function LlistaContactes() {
             setContacts(CONTACTES)
         } else {
             let localContactes = localStorage.getItem('contactes')
-            console.log('contactes storage:', JSON.parse(localContactes));
             setContacts(JSON.parse(localContactes))
         }
     }, [])
