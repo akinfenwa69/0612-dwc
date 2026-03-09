@@ -6,15 +6,53 @@ export default function DetailsContacte() {
     const [contacte, setContacte] = useState()
     const contacteID = window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
 
-    function updateContacte() { }
-    function removeContacte() { }
+    //
+    // FORM PARAMS
+    //
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [tel, setTel] = useState('')
+
+    //
+    // GET CONTACTE
+    //
 
     useEffect(() => {
-        setContacte(CONTACTES.filter(item => item.id === parseInt(contacteID))[0])
-
-        //checkStorage()
-        //initTheme()
+        let localContactes = JSON.parse(localStorage.getItem('contactes'))
+        let localContacte = localContactes.filter(item => item.id === parseInt(contacteID))[0]
+        setContacte(localContacte)
     }, [])
+
+    //
+    // EDITAR CONTACTE
+    //
+
+    function updateContacte() {
+        const storage = JSON.parse(localStorage.getItem('contactes'));
+        const contactIndex = storage.findIndex(item => item.id == contacteID);
+
+        storage[contactIndex].nom = name;
+        storage[contactIndex].email = email;
+        storage[contactIndex].telefon = tel;
+
+        localStorage.setItem('contactes', JSON.stringify(storage));
+    }
+
+    //
+    // ELIMINAR CONTACTE
+    //
+
+    function removeContacte() {
+        const storage = JSON.parse(localStorage.getItem('contactes'));
+        const contactIndex = storage.findIndex(item => item.id == contacteID);
+
+        storage.splice(contactIndex, 1);
+
+        localStorage.setItem('contactes', JSON.stringify(storage));
+
+        window.location.href = "/javascript/llista-contactes";
+    }
 
     if (!contacte) return "Contacte no seleccionat!"
 
@@ -39,28 +77,28 @@ export default function DetailsContacte() {
                 </div>
 
                 <div id="detalls">
-                    <form action={`/javascript/llista-contactes/${contacte}`} onSubmit={() => updateContacte()} id="myForm" className="grid grid-cols-2 gap-5">
+                    <form action={`/javascript/llista-contactes/${contacteID}`} onSubmit={() => updateContacte()} id="myForm" className="grid grid-cols-2 gap-5">
                         <div className="grid col-start-1">
                             <label htmlFor="userID">ID</label>
-                            <input type="number" name="userID" id="userID" defaultValue={contacte.id} disabled
+                            <input type="number" name="userID" id="userID" defaultValue={contacteID} disabled
                                 className="border rounded p-2 transition border-input focus:border-primary focus:outline-none cursor-not-allowed" />
                         </div>
 
                         <div className="grid row-start-2">
                             <label htmlFor="name">Nom</label>
-                            <input type="text" name="name" id="name" defaultValue={contacte.nom}
+                            <input type="text" name="name" id="name" defaultValue={contacte.nom} onInput={(e) => setName(e.target.value)}
                                 className="border rounded p-2 transition border-input focus:border-primary focus:outline-none" />
                         </div>
 
                         <div className="grid col-start-2">
                             <label htmlFor="email">Email</label>
-                            <input type="email" name="email" id="email" defaultValue={contacte.email}
+                            <input type="email" name="email" id="email" defaultValue={contacte.email} onInput={(e) => setEmail(e.target.value)}
                                 className="border rounded p-2 transition border-input focus:border-primary focus:outline-none" />
                         </div>
 
                         <div className="grid row-start-2 col-start-2">
                             <label htmlFor="tel">Telèfon</label>
-                            <input type="tel" name="tel" id="tel" defaultValue={contacte.telefon}
+                            <input type="tel" name="tel" id="tel" defaultValue={contacte.telefon} onInput={(e) => setTel(e.target.value)}
                                 className="border rounded p-2 transition border-input focus:border-primary focus:outline-none" />
                         </div>
 

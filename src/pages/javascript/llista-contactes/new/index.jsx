@@ -1,15 +1,24 @@
-import { useEffect } from "react"
 import { Contact, Plus } from "lucide-react"
 
 export default function NewContacte() {
 
-    function toggleTheme() { }
-    function addContacte() { }
+    //
+    // AFEGIR CONTACTE
+    //
 
-    useEffect(() => {
-        //checkStorage()
-        //initTheme()
-    }, [])
+    function addContacte() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const tel = document.getElementById('tel').value;
+
+        const storage = JSON.parse(localStorage.getItem('contactes'));
+        //console.log('generated id', storage.sort((a, b) => b.id - a.id)[0].id + 1);
+        const user = { 'id': storage.sort((a, b) => b.id - a.id)[0].id + 1, 'nom': name, 'email': email, 'telefon': tel };
+
+        storage.push(user);
+
+        localStorage.setItem('contactes', JSON.stringify(storage));
+    }
 
     return (
         <>
@@ -32,7 +41,7 @@ export default function NewContacte() {
                 </div>
 
                 <div>
-                    <form action="/projecte/1" onSubmit={() => addContacte()} className="grid grid-cols-2 gap-8">
+                    <form action="/javascript/llista-contactes" onSubmit={() => addContacte()} className="grid grid-cols-2 gap-8">
                         <div className="grid">
                             <label htmlFor="name">Nom</label>
                             <input type="text" name="name" id="name"
