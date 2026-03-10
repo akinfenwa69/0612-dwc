@@ -17,31 +17,33 @@ export function SiteHeader() {
         />
         <ul className="flex gap-2 items-center">
           {
-            pathname.split('/').map((item, index) => {
-              const currentURL = pathname.split('/').slice(1, index + 1)
-              if (item === "") item = "Home"
-              urlArray.push(item)
+            pathname === "/" ?
+              <p>Home</p>
+              : pathname.split('/').map((item, index) => {
+                const currentURL = pathname.split('/').slice(1, index + 1)
+                if (item === "") item = "Home"
+                urlArray.push(item)
 
-              if (pathname.split('/')[index + 1]) {
-                return (
-                  <div key={index} className="flex items-center gap-2">
-                    <a
-                      href={'/' + String(currentURL).replaceAll(',', '/')}
-                      className={`capitalize ${item !== pathname.split('/')[pathname.split('/').length - 1] ? "text-muted-foreground" : ""} hover:text-foreground transition`}
-                    >
+                if (pathname.split('/')[index + 1]) {
+                  return (
+                    <div key={index} className="flex items-center gap-2">
+                      <a
+                        href={'/' + String(currentURL).replaceAll(',', '/')}
+                        className={`capitalize ${item !== pathname.split('/')[pathname.split('/').length - 1] ? "text-muted-foreground" : ""} hover:text-foreground transition`}
+                      >
+                        {/\d/.test(item) ? item : item.replaceAll('-', ' ')}
+                      </a>
+                      <span className="text-muted-foreground">/</span>
+                    </div>
+                  )
+                } else {
+                  return (
+                    <p key={index} className={`capitalize`}>
                       {/\d/.test(item) ? item : item.replaceAll('-', ' ')}
-                    </a>
-                    <span className="text-muted-foreground">/</span>
-                  </div>
-                )
-              } else {
-                return (
-                  <p key={index} className={`capitalize`}>
-                    {/\d/.test(item) ? item : item.replaceAll('-', ' ')}
-                  </p>
-                )
-              }
-            })
+                    </p>
+                  )
+                }
+              })
           }
         </ul>
         <div className="ml-auto flex items-center gap-2">

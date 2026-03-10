@@ -1,5 +1,6 @@
 import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
+import Manteniment, { is2Manteniment, isJavaScriptManteniment, isManteniment } from "../../../components/manteniment"
 
 export default function JavascriptEx2() {
     const [dni, setDNI] = useState(0)
@@ -35,6 +36,8 @@ export default function JavascriptEx2() {
         setAny('')
     }
 
+        if (isManteniment || isJavaScriptManteniment || is2Manteniment) return <Manteniment />
+    
     return (
         <div className="grid gap-5">
             <a href="/javascript"

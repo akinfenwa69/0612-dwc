@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import CONTACTES from '@/api/contacts.json'
 import { Contact, Plus } from "lucide-react"
+import Manteniment, { isJavaScriptManteniment, isLlistaContactesManteniment, isManteniment } from "../../../../components/manteniment"
 
 export default function DetailsContacte() {
     const [contacte, setContacte] = useState()
@@ -22,6 +23,11 @@ export default function DetailsContacte() {
         let localContactes = JSON.parse(localStorage.getItem('contactes'))
         let localContacte = localContactes.filter(item => item.id === parseInt(contacteID))[0]
         setContacte(localContacte)
+
+        // user params
+        setName(localContacte.nom)
+        setEmail(localContacte.email)
+        setTel(localContacte.telefon)
     }, [])
 
     //
@@ -53,6 +59,8 @@ export default function DetailsContacte() {
 
         window.location.href = "/javascript/llista-contactes";
     }
+
+    if (isManteniment || isJavaScriptManteniment || isLlistaContactesManteniment) return <Manteniment />
 
     if (!contacte) return "Contacte no seleccionat!"
 
@@ -86,19 +94,19 @@ export default function DetailsContacte() {
 
                         <div className="grid row-start-2">
                             <label htmlFor="name">Nom</label>
-                            <input type="text" name="name" id="name" defaultValue={contacte.nom} onInput={(e) => setName(e.target.value)}
+                            <input type="text" name="name" id="name" defaultValue={name} onInput={(e) => setName(e.target.value)}
                                 className="border rounded p-2 transition border-input focus:border-primary focus:outline-none" />
                         </div>
 
                         <div className="grid col-start-2">
                             <label htmlFor="email">Email</label>
-                            <input type="email" name="email" id="email" defaultValue={contacte.email} onInput={(e) => setEmail(e.target.value)}
+                            <input type="email" name="email" id="email" defaultValue={email} onInput={(e) => setEmail(e.target.value)}
                                 className="border rounded p-2 transition border-input focus:border-primary focus:outline-none" />
                         </div>
 
                         <div className="grid row-start-2 col-start-2">
                             <label htmlFor="tel">Telèfon</label>
-                            <input type="tel" name="tel" id="tel" defaultValue={contacte.telefon} onInput={(e) => setTel(e.target.value)}
+                            <input type="tel" name="tel" id="tel" defaultValue={tel} onInput={(e) => setTel(e.target.value)}
                                 className="border rounded p-2 transition border-input focus:border-primary focus:outline-none" />
                         </div>
 

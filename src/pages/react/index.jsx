@@ -2,12 +2,15 @@ import { ClipboardList } from "lucide-react"
 import { IoLogoReact } from "react-icons/io5"
 import { MagicCard } from "@/components/ui/magic-card"
 import { motion } from "motion/react"
+import Manteniment, { isManteniment, isReactManteniment } from "../../components/manteniment"
 
 export default function React() {
     const sites = [
         { id: '5', title: 'Gestor de Tasques', url: '/react/gestor-tasques', icon: ClipboardList },
         { id: '6', title: 'Catàleg de Productes', url: '/react/cataleg-productes', icon: ClipboardList },
     ]
+
+    if (isManteniment || isReactManteniment) return <Manteniment />
 
     return (
         <div className="flex flex-col gap-5">

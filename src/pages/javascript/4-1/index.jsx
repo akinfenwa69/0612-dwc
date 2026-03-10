@@ -1,5 +1,6 @@
 import { ChevronLeft } from "lucide-react";
 import { useEffect } from "react";
+import Manteniment, { is4_1Manteniment, isJavaScriptManteniment, isManteniment } from "../../../components/manteniment"
 
 export default function JavascriptEx4_1() {
     //
@@ -311,11 +312,13 @@ export default function JavascriptEx4_1() {
         });
     })
 
+    if (isManteniment || isJavaScriptManteniment || is4_1Manteniment) return <Manteniment />
+
     return (
         <div className="grid gap-5">
             <a href='/javascript'
                 className="absolute left-5 top-5 p-3 hover:bg-accent rounded-full cursor-pointer">
-                <ChevronLeft/>
+                <ChevronLeft />
             </a>
 
             <div className="grid text-center gap-3">

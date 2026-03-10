@@ -1,5 +1,6 @@
 import { ChevronLeft } from "lucide-react";
 import { useEffect, useState } from "react";
+import Manteniment, { is3_2Manteniment, isJavaScriptManteniment, isManteniment } from "../../../components/manteniment"
 
 export default function JavascriptEx3_2() {
     const [nom, setNom] = useState('')
@@ -65,6 +66,8 @@ export default function JavascriptEx3_2() {
             bg.style.backgroundColor = localStorage.getItem('bg-color');
         }
     }, [])
+
+    if (isManteniment || isJavaScriptManteniment || is3_2Manteniment) return <Manteniment />
 
     return (
         <div className="grid gap-5">

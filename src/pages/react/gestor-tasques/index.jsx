@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from "motion/react"
 import { X } from 'lucide-react'
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import Manteniment, { isGestorTasquesManteniment, isManteniment, isReactManteniment } from "../../../components/manteniment"
 
 function TaskItem({ id, text, state, removeTask, toggleTask }) {
 
@@ -72,6 +73,8 @@ export default function GestorTasques() {
 
   // filters
   const filteredTasks = taskList.filter(item => filter === 'Tots' ? true : item.state === filter)
+
+  if (isManteniment || isReactManteniment || isGestorTasquesManteniment) return <Manteniment />
 
   return (
     <main className='p-10 mb-10 grid grid-cols-1 2xl:grid-cols-2 gap-5'>

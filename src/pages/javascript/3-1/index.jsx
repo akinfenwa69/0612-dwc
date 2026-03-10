@@ -1,8 +1,8 @@
-import Manteniment from "@/components/manteniment"
+import Manteniment, { is3_1Manteniment, isJavaScriptManteniment, isManteniment } from "../../../components/manteniment"
 
 export default function JavascriptEx3_1() {
 
-    if (true) return <Manteniment />
+    if (isManteniment || isJavaScriptManteniment || is3_1Manteniment) return <Manteniment />
 
     return (
         <div></div>

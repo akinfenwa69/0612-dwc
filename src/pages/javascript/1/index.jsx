@@ -1,5 +1,6 @@
 import { ChevronLeft } from "lucide-react";
 import { useEffect, useState } from "react";
+import Manteniment, { isManteniment, is1Manteniment, isJavaScriptManteniment } from "../../../components/manteniment"
 
 export default function JavascriptEx1() {
     const [name, setName] = useState('')
@@ -10,6 +11,8 @@ export default function JavascriptEx1() {
             alert("Has acceptat")
             : alert("No has acceptat")
     }
+
+    if (isManteniment || isJavaScriptManteniment || is1Manteniment) return <Manteniment />
 
     return (
         <div className="grid gap-5">

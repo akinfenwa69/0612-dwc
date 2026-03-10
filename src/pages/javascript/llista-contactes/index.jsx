@@ -1,6 +1,7 @@
 import { Contact, Plus, RotateCcw, History } from "lucide-react";
 import { useEffect, useState } from "react";
 import CONTACTES from '@/api/contacts.json'
+import Manteniment, { isJavaScriptManteniment, isLlistaContactesManteniment, isManteniment } from "../../../components/manteniment"
 
 export default function LlistaContactes() {
     const [contacts, setContacts] = useState([])
@@ -52,6 +53,8 @@ export default function LlistaContactes() {
         localStorage.setItem('contactes', JSON.stringify(storage));
         window.location.reload();
     }
+
+    if (isManteniment || isJavaScriptManteniment || isLlistaContactesManteniment) return <Manteniment />
 
     return (
         <>

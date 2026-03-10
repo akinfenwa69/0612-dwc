@@ -9,3 +9,31 @@ export default function Manteniment() {
         </div>
     )
 }
+
+//
+// LLISTAT DE TOTS ELS APARTATS
+//
+
+// general
+export const isManteniment = false
+
+// javascript & react
+export const isJavaScriptManteniment = false
+export const isReactManteniment = false
+
+// javascript
+export const is1Manteniment = false
+export const is2Manteniment = false
+export const is3_1Manteniment = true
+export const is3_2Manteniment = false
+export const is3_3Manteniment = true
+export const is4_1Manteniment = false
+export const is4_2Manteniment = false
+export const isLlistaContactesManteniment = false
+
+// react
+export const isGestorTasquesManteniment = false
+export const isCatalegProductesManteniment = true
+
+// other
+export const isSettingsManteniment = true

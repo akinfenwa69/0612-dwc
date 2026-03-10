@@ -1,4 +1,5 @@
 import { Contact, Plus } from "lucide-react"
+import Manteniment, { isJavaScriptManteniment, isLlistaContactesManteniment, isManteniment } from "../../../../components/manteniment"
 
 export default function NewContacte() {
 
@@ -18,6 +19,8 @@ export default function NewContacte() {
 
         localStorage.setItem('contactes', JSON.stringify(storage));
     }
+
+    if (isManteniment || isJavaScriptManteniment || isLlistaContactesManteniment) return <Manteniment />
 
     return (
         <>

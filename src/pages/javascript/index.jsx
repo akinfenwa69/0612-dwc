@@ -2,6 +2,7 @@ import { Braces, Contact, Cookie, Form, IdCard, PictureInPicture, TablePropertie
 import { IoLogoJavascript } from "react-icons/io5";
 import { MagicCard } from "@/components/ui/magic-card"
 import { motion } from "motion/react"
+import Manteniment, { isJavaScriptManteniment, isManteniment } from "../../components/manteniment"
 
 export default function Javascript() {
     const exercises = [
@@ -17,6 +18,8 @@ export default function Javascript() {
     const projects = [
         { title: 'Llista de Contactes', url: '/javascript/llista-contactes', icon: Contact },
     ]
+
+    if (isManteniment || isJavaScriptManteniment) return <Manteniment />
 
     return (
         <div className="flex flex-col gap-5">

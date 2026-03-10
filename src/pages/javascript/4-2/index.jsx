@@ -4,6 +4,7 @@ import weaponsJSON from "@/api/weapons.json"
 import { FaFemale, FaMale } from "react-icons/fa";
 import { FaQuestion } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import Manteniment, { is4_2Manteniment, isJavaScriptManteniment, isManteniment } from "../../../components/manteniment"
 
 export default function JavascriptEx4_2() {
     // Exercici 1: Crear l'objecte Personatge
@@ -146,6 +147,8 @@ export default function JavascriptEx4_2() {
                 return <FaQuestion {...props} color="#AAA" />
         }
     }
+
+    if (isManteniment || isJavaScriptManteniment || is4_2Manteniment) return <Manteniment />
 
     if (!characters && !weapons) return "Loading..."
 

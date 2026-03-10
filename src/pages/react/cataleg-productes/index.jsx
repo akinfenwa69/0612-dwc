@@ -1,6 +1,7 @@
 import PRODUCTES from '@/api/productes.json'
 import { useEffect, useState } from 'react'
 import { Spinner } from "@/components/ui/spinner"
+import Manteniment, { isCatalegProductesManteniment, isManteniment, isReactManteniment } from "../../../components/manteniment"
 
 // 2.​ Visualització
 function ProductCard({ producte, ...props }) {
@@ -59,6 +60,8 @@ export default function CatalegProductes() {
         }
     }
 
+        if (isManteniment || isReactManteniment || isCatalegProductesManteniment) return <Manteniment />
+    
     return (
         <div>
             <h1 className="text-4xl mb-6">Catàleg de Productes</h1>
